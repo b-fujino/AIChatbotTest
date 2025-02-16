@@ -10,34 +10,35 @@ load_dotenv()
 # OpenAI のクライアントを取得
 client = OpenAI()
 
-input_message = ""
-st.title("OpenAI Chat API")
-input_message=st.text_input("メッセージを入力してください")
-
-# もしSession Stateに保存されていないなら
-if "message" not in st.session_state:
-    message = [
+# チャット履歴をセッションに保存
+if "messages" not in st.session_state:
+    st.session_state.messages = [
         {"role": "system", "content": "あなたは「うる星やつら」の登場人物のラムちゃんです."},
     ]
-    message.append({"role": "user", "content": input_message})
 
-else:
-    message  = st.session_state.message
-    message.append({"role": "user", "content": input_message})
+st.title("Chat App with Streamlit")
 
+# チャット履歴を表示
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-if input_message != "":
-# テキスト生成のリクエストを送信
+# ユーザーの入力を受け取る
+if user_input := st.chat_input("メッセージを入力してください:"):
+    # ユーザーのメッセージを追加
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    
+    # 表示
+    with st.chat_message("user"):
+        st.markdown(user_input)
+
+    # システムの応答 (ここでは仮の応答)
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=message
+        messages=st.session_state.messages
     )
+    system_response = completion.choices[0].message.content
+    st.session_state.messages.append({"role": "assistant", "content": system_response})
 
-
-    # Session Stateに保存
-    message.append({"role":"system","content": completion.choices[0].message.content})
-    st.session_state.message = message
-
-    # 結果を表示
-    st.write(message)
-
+    # 表示
+    st.rerun()
