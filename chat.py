@@ -1,11 +1,10 @@
 
 from dotenv import load_dotenv
-#import os
 from openai import OpenAI
 import streamlit as st
 
 # アシスタントの画像設定
-assistant_image_url = "Lum.png"
+assistant_image_url = "https://b-fujino.github.io/AIChatbotTest/Lum.png"
 
 # 環境ファイルからOPENAI_APIを読み込む
 load_dotenv()
@@ -44,11 +43,27 @@ with st.container():
     for message in st.session_state.messages:
         if message["role"] == "system":continue # systemプロンプトは表示しない
         elif message["role"] == "user":
-            with st.chat_message(message["role"]):
+            # st.markdown(f"""
+            # <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 10px;">
+            #     <div style="background-color: #e1f5fe; padding: 10px; border-radius: 10px;">
+            #         {message["content"]}
+            #     </div>
+            #     <img src="{assistant_image_url}" style="width: 70px; height: 70px; border-radius: 50%; margin-left: 10px;">
+            # </div>
+            # """, unsafe_allow_html=True)    
+            with st.chat_message(message["role"], avatar="Risa.png"):
                 st.markdown(message["content"])
         elif message["role"] == "assistant":
-            with st.chat_message(message["role"], avatar=assistant_image_url):
-                st.markdown(message["content"])
+            st.markdown(f"""
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="{assistant_image_url}" style="width: 70px; height: 70px; border-radius: 50%; margin-right: 10px;">
+                <div style="background-color: #e1f5fe; padding: 10px; border-radius: 10px;">
+                    {message["content"]}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            # with st.chat_message(message["role"], avatar="Lum.png"):
+            #    st.markdown(message["content"])
         last_role = message["role"]
 
 
