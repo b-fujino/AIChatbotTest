@@ -16,23 +16,22 @@ if "messages" not in st.session_state:
         {"role": "system", "content": "あなたは「うる星やつら」の登場人物のラムちゃんです."},
     ]
 
+
 st.title("Chat App with Streamlit")
 
 # チャット履歴を表示
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+last_role = ""
+with st.container():
+    for message in st.session_state.messages:
+        if message["role"] == "system":continue # systemプロンプトは表示しない
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+        last_role = message["role"]
 
-# ユーザーの入力を受け取る
-if user_input := st.chat_input("メッセージを入力してください:"):
-    # ユーザーのメッセージを追加
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    
-    # 表示
-    with st.chat_message("user"):
-        st.markdown(user_input)
 
-    # システムの応答 (ここでは仮の応答)
+# もし最後のメッセージがuserだったらOpenAI に送信
+if last_role == "user":
+    # OpenAI に送信
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=st.session_state.messages
@@ -42,3 +41,15 @@ if user_input := st.chat_input("メッセージを入力してください:"):
 
     # 表示
     st.rerun()
+
+
+# ユーザーの入力を受け取る
+with st.form(key="chat_form", clear_on_submit=True):
+    user_input = st.text_area("メッセージを入力してください:", key = "input")
+    submit_button = st.form_submit_button(label="送信")
+
+if submit_button:
+    # ユーザーのメッセージを追加
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    st.rerun()
+
