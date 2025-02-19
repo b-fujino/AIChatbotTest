@@ -71,7 +71,7 @@ with st.container():
 if last_role == "user":
     # OpenAI に送信
     completion = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=st.session_state.messages
     )
     system_response = completion.choices[0].message.content
