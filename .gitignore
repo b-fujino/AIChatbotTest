@@ -1,1 +1,3 @@
 .venv/*
+.env
+.whisper_env/*
