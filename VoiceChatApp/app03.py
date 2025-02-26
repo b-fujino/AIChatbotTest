@@ -1,8 +1,9 @@
-
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import os
 
 app = Flask(__name__, static_folder="static")  
+CORS(app)
 
 @app.route("/")
 def index():
@@ -10,10 +11,10 @@ def index():
 
 @app.route("/upload", methods=["POST"])
 def upload_audio():
-    if "audio" not in request.files:
+    if "file" not in request.files:
         return jsonify({"error": "No audio file provided"}), 400
     
-    audio_file = request.files["audio"]
+    audio_file = request.files["file"]
     audio_path = os.path.join("uploads", audio_file.filename)
     audio_file.save(audio_path)
     
