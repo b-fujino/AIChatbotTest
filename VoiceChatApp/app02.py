@@ -1,14 +1,9 @@
+
 from flask import Flask, request, jsonify, render_template
-import speech_recognition as sr
-import openai
 import os
-from dotenv import load_dotenv
+import subprocess
 
-# 環境変数の読み込み
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-app = Flask(__name__, static_folder="static", template_folder="static")
+app = Flask(__name__)
 
 @app.route("/")
 def index():
@@ -26,6 +21,8 @@ def upload_audio():
     text = "test"
     ai_response = "test"
     return jsonify({"text": text, "ai_response": ai_response})
+
+# 使い方
 
 if __name__ == "__main__":
     app.run(debug=True)

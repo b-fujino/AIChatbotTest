@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WAV録音＆アップロード</title>
+    <!-- Recorder.js を読み込む -->
+    <script src="https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs@master/dist/recorder.js"></script>
+    <!-- <script src="recorder.js"></script> -->
+  </head>
+  <body>
+    <h1>WAV録音＆アップロード</h1>
+    <button id="startRecording">録音開始</button>
+    <button id="stopRecording" disabled>録音停止</button>
+    <!-- <audio id="audioPlayback" controls></audio> -->
+    <!-- <button id="uploadAudio" disabled>アップロード</button> -->
+    <p><strong>文字起こし:</strong> <span id="transcription"></span></p>
+    <p><strong>AIの応答:</strong> <span id="aiResponse"></span></p>
+
+    <script>
+      let audioContext;
+      let recorder;
+      let audioBlob;
+
+      document
+        .getElementById("startRecording")
+        .addEventListener("click", async () => {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
+          audioContext = new AudioContext();
+          const source = audioContext.createMediaStreamSource(stream);
+          recorder = new Recorder(source, { numChannels: 1 }); // モノラル録音
+          recorder.record();
+
+          document.getElementById("startRecording").disabled = true;
+          document.getElementById("stopRecording").disabled = false;
+        });
+
+      document.getElementById("stopRecording").addEventListener("click", () => {
+        recorder.stop();
+        recorder.exportWAV((blob) => {
+          audioBlob = blob;
+
+          if (!audioBlob) {
+            console.error("No audio to upload");
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append("audio", audioBlob, "recorded_audio.wav");
+
+          fetch("http://localhost:5000/upload", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              transcriptionElement.textContent =
+                data.text || "認識できませんでした。";
+              aiResponseElement.textContent =
+                data.ai_response || "AIの応答なし。";
+            })
+            .catch((error) => {
+              console.error("Upload failed:", error);
+              transcriptionElement.textContent = "エラーが発生しました。";
+              aiResponseElement.textContent = "";
+            });
+        });
+
+        document.getElementById("startRecording").disabled = false;
+        document.getElementById("stopRecording").disabled = true;
+      });
+    </script>
+  </body>
+</html>
