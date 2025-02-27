@@ -4,3 +4,4 @@ speechrecognition
 openai
 python-dotenv
 flask_socketio
+requests
