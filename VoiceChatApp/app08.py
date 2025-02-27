@@ -9,9 +9,8 @@ import threading
 import requests
 import json
 import time
-import logging
 
-# 環境変数の読み込み
+#　環境変数の読み込み
 load_dotenv()
 
 # Flaskアプリケーションの作成
@@ -23,16 +22,12 @@ CORS(app)
 # Socket.IOの設定
 socketio = SocketIO(app)
 
-#--------------------------------------------------
-# ロガーの設定
-
-#--------------------------------------------------
-
-
 # 会話ログを保持する変数
 messages = [
     {"role": "system", "content": "You are a helpful assistant."}
 ]
+
+#--------------------------------------------------
 
 # ルートパスへのリクエストを処理する
 @app.route("/")
@@ -43,20 +38,19 @@ def index():
 @app.route("/upload", methods=["POST"])
 def upload_audio():
     if "file" not in request.files:
-        print("No audio file provided")
         return jsonify({"error": "No audio file provided"}), 400
     
     audio_file = request.files["file"]
     audio_path = os.path.join("uploads", audio_file.filename)
     audio_file.save(audio_path)
-    print(f"Audio file saved to {audio_path}")
 
     # 音声認識
     r = sr.Recognizer()
     with sr.AudioFile(audio_path) as source:
         audio = r.record(source)
         text = r.recognize_google(audio, language="ja-JP")
-        print(f"Recognized text: {text}")
+        if __debug__: # デバッグモードの場合
+            print(text)
 
     # 音声認識の結果を最初に返す
     response = jsonify({"text": text})
@@ -69,11 +63,14 @@ def upload_audio():
 # 音声ファイルを提供するエンドポイント
 @app.route("/audio/<filename>")
 def get_audio(filename):
-    return send_file(os.path.join("output", filename))
+    return send_file(os.path.join("uploads",filename))
+
 
 #--------------------------------------------------
+
 # AIの応答を取得する関数 
 def get_ai_response(text):
+    
     # 現在の時刻取得
     start = time.time()
 
@@ -89,26 +86,22 @@ def get_ai_response(text):
 
     # 処理時間の計算
     ai_time = time.time() - start
-    print(f"AI response time: {ai_time} [sec]") 
+    print(f"処理時間: {ai_time} [sec]") 
 
     # 音声合成
     filename = synthesize_voice(ai_response)
 
     # 処理時間の計算
     voice_time = time.time() - start - ai_time
-    print(f"Voice synthesis time: {voice_time} [sec]")
+    print(f"音声合成時間: {voice_time} [sec]")
     
     # WebSocketを通じてクライアントに通知
     socketio.emit('ai_response', {'ai_response': ai_response, 'audio': filename})
 
 
+
 # 音声合成を行なう関数
-def synthesize_voice(text, speaker=1):
-
-    filename = f"output_{len(messages)}.wav"    
-    file_path = f"output/{filename}"
-
-
+def synthesize_voice(text, speaker=1, filename="uploads/output.wav"):
     # 1. テキストから音声合成のためのクエリを作成
     query_payload = {'text': text, 'speaker': speaker}
     query_response = requests.post(f'http://localhost:50021/audio_query', params=query_payload)
@@ -125,13 +118,14 @@ def synthesize_voice(text, speaker=1):
 
     if synthesis_response.status_code == 200:
         # 音声ファイルとして保存
-        with open(file_path, 'wb') as f:
+        with open(filename, 'wb') as f:
             f.write(synthesis_response.content)
-        print(f"音声が {file_path} に保存されました。")
-        return filename
+        print(f"音声が {filename} に保存されました。")
+        return "output.wav"
     else:
         print(f"Error in synthesis: {synthesis_response.text}")
         return None
+
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
