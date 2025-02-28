@@ -33,7 +33,8 @@ messages = [
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    filename="app.log"
+    filename="app.log",
+    encoding="utf-8"
 )
 #--------------------------------------------------
 
@@ -149,5 +150,5 @@ def synthesize_voice(text, speaker=1):
 
 
 if __name__ == "__main__":
-    logging.info("■■■■■■アプリケーションを起動します。■■■■■")
+    logging.info("#####アプリケーションを起動します。#####")
     socketio.run(app, debug=True)

@@ -1,35 +1,31 @@
-.user p {
-  position: absolute;
+p.user {
+  position: relative;
   left: 25%;
   right: 0;
   width: 75%;
   background-color: antiquewhite;
 }
 
-.assistant::user {
-  content: "あなた";
-  position: absolute;
+.user::before {
+  content: "あなた:\A";
+  white-space: pre; /* または pre-wrap */
   right: 0;
-  top: 0;
   background-color: antiquewhite;
   padding: 2px 5px;
   border-radius: 3px;
-  font-weight: bold;
 }
-.assistant p {
-  position: absolute;
+p.assistant {
+  position: relative;
   left: 0;
   right: 25%;
   width: 75%;
   background-color: #f0f0f0;
 }
 .assistant::before {
-  content: "AI";
-  position: absolute;
+  content: "AI:\A";
+  white-space: pre; /* または pre-wrap */
   left: 0;
-  top: 0;
   background-color: #f0f0f0;
   padding: 2px 5px;
   border-radius: 3px;
-  font-weight: bold;
 }
