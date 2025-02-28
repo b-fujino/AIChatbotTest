@@ -1,9 +1,12 @@
-p.user {
+.user {
   position: relative;
   left: 25%;
   right: 0;
   width: 75%;
   background-color: antiquewhite;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
 }
 
 .user::before {
@@ -14,12 +17,15 @@ p.user {
   padding: 2px 5px;
   border-radius: 3px;
 }
-p.assistant {
+.assistant {
   position: relative;
   left: 0;
   right: 25%;
   width: 75%;
   background-color: #f0f0f0;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
 }
 .assistant::before {
   content: "AI:\A";

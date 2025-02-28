@@ -10,6 +10,9 @@
     <!-- Socket.IO を読み込む -->
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 
+    <!-- marked.js を読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <!-- cssの適用-->
     <link rel="stylesheet" href="/static/voicechatapp.css">
 
@@ -30,7 +33,9 @@
             const socket = io();
 
             socket.on('ai_response', (data) => {
-                document.getElementById("chatlog").innerHTML += `<p class="assistant">${data.ai_response}</p>`;
+                const markdownText = data.ai_response;
+                const htmlContent = marked.parse(markdownText);
+                document.getElementById("chatlog").innerHTML += `<div class="assistant">${htmlContent}</div>`;
                 
                 // 音声ファイルを自動再生する処理
                 if (data.audio) {
@@ -95,7 +100,9 @@
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    if(data.text) document.getElementById("chatlog").innerHTML += `<p class="user">${data.text}</p>`;
+                    if(data.text){
+                         document.getElementById("chatlog").innerHTML += `<div class="user">${marked.parse(data.text)}</div>`;
+                    }
                     else console.log("Error: 音声を認識できませんでした。");
                 })
                 .catch((error) => {
