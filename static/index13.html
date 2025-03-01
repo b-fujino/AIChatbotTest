@@ -1,0 +1,294 @@
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WAV録音＆アップロード</title>
+    <!-- Recorder.js を読み込む -->
+    <script src="https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs@master/dist/recorder.js"></script>
+
+    <!-- Socket.IO を読み込む -->
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
+    <!-- marked.js を読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- cssの適用-->
+    <link rel="stylesheet" href="/static/voicechatapp.css" />
+  </head>
+
+  <body>
+    <h1>WAV録音＆アップロード</h1>
+    <button id="startRecording">録音開始</button>
+    <button id="stopRecording">録音停止</button>
+    <button id="stopRecordingWithStreaming">停止とストリーミング処理</button>
+    <select id="speakerSelect"></select>
+    <button id="speakerTest">音声テスト</button>
+    <div id="chatlog"></div>
+
+    <script>
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then((stream) => {
+          window.stream = stream;
+        })
+        .catch((error) => {
+          console.error("Error accessing the microphone: " + error);
+        });
+      let audioContext;
+      let recorder;
+      let audioBlob;
+
+      // フォーム要素取得
+      const startRecButton = document.getElementById("startRecording");
+      const stopRecButton = document.getElementById("stopRecording");
+      const stopRecwithStreamingButton = document.getElementById(
+        "stopRecordingWithStreaming"
+      );
+      const speakerSelect = document.getElementById("speakerSelect");
+      const speakerTestButton = document.getElementById("speakerTest");
+
+      // 録音開始時のボタンを無効化
+      function setBtnonStart() {
+        startRecButton.disabled = true;
+        stopRecButton.disabled = false;
+        stopRecwithStreamingButton.disabled = false;
+        speakerSelect.disabled = true;
+        speakerTestButton.disabled = true;
+      }
+
+      // 処理中のボタン無効化
+      function setBtnunderProcessing() {
+        startRecButton.disabled = true;
+        stopRecButton.disabled = true;
+        stopRecwithStreamingButton.disabled = true;
+        speakerSelect.disabled = true;
+        speakerTestButton.disabled = true;
+      }
+
+      // 復帰時のボタン有効化
+      function setBtnonRestart() {
+        startRecButton.disabled = false;
+        stopRecButton.disabled = true;
+        stopRecwithStreamingButton.disabled = true;
+        speakerSelect.disabled = false;
+        speakerTestButton.disabled = false;
+      }
+
+      // 音声合成のストリーミング処理
+      async function playSnetence(chunks, audioContext) {
+        const combined = new Uint8Array(
+          chunks.reduce((acc, chunk) => [...acc, ...chunk], [])
+        );
+        const audioBuffer = await audioContext.decodeAudioData(combined.buffer);
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start();
+
+        await new Promise((resolve) => {
+          source.onended = resolve;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const socket = io();
+
+        // SpeakerIDリストを取得
+        fetch("/speaker_ids")
+          .then((response) => response.json())
+          .then((data) => {
+            speakerSelect.innerHTML = data.join("");
+          });
+
+        // 音声認識の結果を受信
+        socket.on("SpeechRecognition", (data) => {
+          const markdownText = data.text;
+          const htmlContent = marked.parse(markdownText);
+          document.getElementById(
+            "chatlog"
+          ).innerHTML += `<div class="user">${htmlContent}</div>`;
+        });
+
+        // AIの応答を受信したときの処理
+        socket.on("ai_response", (data) => {
+          const markdownText = data.ai_response;
+          const htmlContent = marked.parse(markdownText);
+          document.getElementById(
+            "chatlog"
+          ).innerHTML += `<div class="assistant">${htmlContent}</div>`;
+        });
+
+        // 音声ファイルを再生する処理
+        socket.on("play_audio", (data) => {
+            const audioBlob = new Blob([data.audio], { type: "audio/mp3" });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+        });
+
+        //Stremingで音声合成の結果を受信
+        socket.on("Streaming", async (data) => {
+          const reader = data.Response.body.getReader();
+          const audioContext = new AudioContext();
+          let chunks = [];
+          let proccesing = false;
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            const textChunk = new TextDecorder("utf-8").decode(value);
+            if (textChunk.include("---start---")) {
+              if (chunks.length > 0 && !proccesing) {
+                proccesing = true;
+                await playSnetence(chunks, audioContext);
+                chunks = [];
+                proccesing = false;
+              }
+            } else if (textChunk.include("---end---")) {
+              proccesing = true;
+              await playSnetence(chunks, audioContext);
+              chunks = [];
+              proccesing = false;
+            } else {
+              chunks.push(value);
+            }
+          }
+        });
+
+        // Spaceキーが押されたときにstartRecordingボタンをクリック
+        document.addEventListener("keydown", (event) => {
+          if (startRecButton.disabled) {
+            console.log("処理中のため入力はできません");
+            return;
+          }
+          if (event.code === "Space" && !event.repeat) {
+            startRecButton.click();
+          }
+        });
+
+        // Spaceキーから指が離されたときにstopRecordingボタンをクリック
+        document.addEventListener("keyup", (event) => {
+          if (stopRecButton.disabled) {
+            console.log("不正な録音停止操作です");
+            return;
+          }
+          if (event.code === "Space" && !event.repeat) {
+            stopRecButton.click();
+          }
+        });
+
+        //Speakerの音声確認テスト
+        speakerTestButton.addEventListener("click", () => {
+          const speaker = speakerSelect.value;
+          fetch("/speaker_test", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ speaker }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const audio = new Audio(`/audio/${data.audio}`);
+              audio.play();
+            });
+        });
+
+        // 録音開始ボタンがクリックされたときの処理
+        startRecButton.addEventListener("click", () => {
+          audioContext = new AudioContext();
+          const source = audioContext.createMediaStreamSource(window.stream);
+          recorder = new Recorder(source, { numChannels: 1 }); // モノラル録音
+          recorder.record();
+
+          // ボタンを無効化
+          setBtnonStart();
+        });
+
+        // 録音停止ボタンがクリックされたときの処理
+        stopRecButton.addEventListener("click", () => {
+          // ボタンを無効化
+          setBtnunderProcessing();
+
+          // 録音を停止
+          recorder.stop();
+
+          // 録音した音声をファイルに保存して送信
+          recorder.exportWAV((blob) => {
+            audioBlob = blob;
+
+            if (!audioBlob) {
+              console.error("No audio to upload");
+              return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", audioBlob, "recorded_audio.wav");
+
+            const speaker = speakerSelect.value;
+            formData.append("speaker", speaker);
+
+            fetch("/upload", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                // ボタン状態の初期化
+                setBtnonRestart();
+              })
+              .catch((error) => {
+                console.error("Upload failed:");
+                // ボタン状態の初期化
+                setBtnonRestart();
+              });
+          });
+        });
+
+        stopRecwithStreamingButton.addEventListener("click", () => {
+          // ボタンを無効化
+          setBtnunderProcessing();
+
+          // 録音を停止
+          recorder.stop();
+
+          // 録音した音声をファイルに保存して送信
+          recorder.exportWAV((blob) => {
+            audioBlob = blob;
+
+            if (!audioBlob) {
+              console.error("No audio to upload");
+              return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", audioBlob, "recorded_audio.wav");
+
+            const speaker = speakerSelect.value;
+            formData.append("speaker", speaker);
+
+            fetch("/streaming", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                // ボタン状態の初期化
+                setBtnonRestart();
+              })
+              .catch((error) => {
+                console.error("Upload failed:");
+                // ボタン状態の初期化
+                setBtnonRestart();
+              });
+          });
+        });
+
+        // ボタン状態の初期化
+        setBtnonRestart();
+      });
+    </script>
+  </body>
+</html>
