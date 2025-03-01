@@ -1,0 +1,60 @@
+<button id="playButton">音声再生</button>
+
+<script>
+async function playStreamedVoice(text, speaker = 1) {
+    const response = await fetch(`/stream_sentences?text=${encodeURIComponent(text)}&speaker=${speaker}`);
+    const reader = response.body.getReader();
+
+    const audioContext = new AudioContext();
+
+    let chunks = [];
+    let processing = false;
+
+    while (true) {
+        const {done, value} = await reader.read();
+        if (done) break;
+
+        const textChunk = new TextDecoder("utf-8").decode(value);
+
+        if (textChunk.includes("--SENTENCE-START--")) {
+            // 前の文があれば処理
+            if (chunks.length > 0 && !processing) {
+                processing = true;
+                await playSentence(chunks, audioContext);
+                chunks = [];
+                processing = false;
+            }
+        } else if (textChunk.includes("--SENTENCE-END--")) {
+            // 文終了時、再生処理を実行
+            processing = true;
+            await playSentence(chunks, audioContext);
+            chunks = [];
+            processing = false;
+        } else {
+            // バイナリチャンクを貯める
+            chunks.push(value);
+        }
+    }
+}
+
+// 文の音声データを再生
+async function playSentence(chunks, audioContext) {
+    const combined = new Uint8Array(chunks.reduce((acc, chunk) => [...acc, ...chunk], []));
+    const audioBuffer = await audioContext.decodeAudioData(combined.buffer);
+
+    const source = audioContext.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(audioContext.destination);
+    source.start();
+
+    // 再生完了まで待機
+    await new Promise(resolve => {
+        source.onended = resolve;
+    });
+}
+
+// ボタンイベント
+document.getElementById("playButton").onclick = () => {
+    playStreamedVoice("こんにちは。今日はいい天気ですね。明日は雨ですか？");
+};
+</script>

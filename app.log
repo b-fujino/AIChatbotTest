@@ -1112,3 +1112,1012 @@
 2025-03-01 14:07:06,245 [INFO] 127.0.0.1 - - [01/Mar/2025 14:07:06] "[35m[1mGET /audio/output_7.wav HTTP/1.1[0m" 206 -
 2025-03-01 14:07:06,453 [INFO] 音声ファイル output_7.wav を返します。
 2025-03-01 14:07:06,456 [INFO] 127.0.0.1 - - [01/Mar/2025 14:07:06] "[35m[1mGET /audio/output_7.wav HTTP/1.1[0m" 206 -
+2025-03-01 17:35:23,200 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 17:35:23,276 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 17:35:23,276 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 17:35:23,276 [INFO]  * Restarting with stat
+2025-03-01 17:35:30,668 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 17:35:30,710 [WARNING]  * Debugger is active!
+2025-03-01 17:35:30,739 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 17:35:36,885 [INFO] index.html を返します。
+2025-03-01 17:35:36,935 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:36] "GET / HTTP/1.1" 200 -
+2025-03-01 17:35:37,165 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 17:35:37,234 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "GET /socket.io/?EIO=4&transport=polling&t=PLGsC28 HTTP/1.1" 200 -
+2025-03-01 17:35:37,257 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:35:37,341 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "POST /socket.io/?EIO=4&transport=polling&t=PLGsC3q&sid=XK6FUj5bWHHdVgLeAAAA HTTP/1.1" 200 -
+2025-03-01 17:35:37,343 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 17:35:37,346 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "GET /socket.io/?EIO=4&transport=polling&t=PLGsC3t&sid=XK6FUj5bWHHdVgLeAAAA HTTP/1.1" 200 -
+2025-03-01 17:35:37,351 [INFO] speaker_ids を取得しました。
+2025-03-01 17:35:37,357 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 17:35:37,795 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "GET /socket.io/?EIO=4&transport=polling&t=PLGsC5C&sid=XK6FUj5bWHHdVgLeAAAA HTTP/1.1" 200 -
+2025-03-01 17:35:37,911 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 17:35:42,599 [INFO] 127.0.0.1 - - [01/Mar/2025 17:35:42] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 17:36:01,450 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:36:01,463 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:36:03,498 [INFO] 音声認識結果: こんにちは初めまして
+2025-03-01 17:36:03,499 [INFO] 音声認識時間: 2.0361342430114746 [sec]
+2025-03-01 17:36:03,500 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 17:36:03,505 [INFO] 127.0.0.1 - - [01/Mar/2025 17:36:03] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:36:03,675 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:36:03,676 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:36:03,676 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:36:03,714 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11205fcb0>
+2025-03-01 17:36:03,715 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x111faecc0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:36:03,738 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x111ee2850>
+2025-03-01 17:36:03,739 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:36:03,740 [DEBUG] send_request_headers.complete
+2025-03-01 17:36:03,740 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:36:03,740 [DEBUG] send_request_body.complete
+2025-03-01 17:36:03,740 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:36:04,951 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:36:05 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'392'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199967'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_0a12c08533f9b11baeb843f4b67890cf'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=eczlEeS2O25RvarRqkZ.xpYP.aksSt6Nuynr8dlyeKA-1740818165-1.0.1.1-ILnYc0.FVo24etdo15ymNqkv7vFDGaETMSow8YmzfsDdgm2l2kSNRlPvOl9EHqHovjNZS_UA2NurJWg4MaO.ghmb5DLj9EJ14SiIrdgvo_4; path=/; expires=Sat, 01-Mar-25 09:06:05 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=CgZucDqhSjnZWs21_txBPRMukYVJFbnZwc3xcCL7GI4-1740818165208-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91975315cc85afbd-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:36:04,953 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:36:04,953 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:36:04,954 [DEBUG] receive_response_body.complete
+2025-03-01 17:36:04,954 [DEBUG] response_closed.started
+2025-03-01 17:36:04,954 [DEBUG] response_closed.complete
+2025-03-01 17:36:04,955 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:36:05 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '392'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199967'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_0a12c08533f9b11baeb843f4b67890cf'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=eczlEeS2O25RvarRqkZ.xpYP.aksSt6Nuynr8dlyeKA-1740818165-1.0.1.1-ILnYc0.FVo24etdo15ymNqkv7vFDGaETMSow8YmzfsDdgm2l2kSNRlPvOl9EHqHovjNZS_UA2NurJWg4MaO.ghmb5DLj9EJ14SiIrdgvo_4; path=/; expires=Sat, 01-Mar-25 09:06:05 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=CgZucDqhSjnZWs21_txBPRMukYVJFbnZwc3xcCL7GI4-1740818165208-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91975315cc85afbd-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:36:04,955 [DEBUG] request_id: req_0a12c08533f9b11baeb843f4b67890cf
+2025-03-01 17:36:04,983 [INFO] AIの応答: こんにちは！初めまして。どのようなお手伝いができますか？
+2025-03-01 17:36:04,983 [INFO] AIレスポンス時間: 1.4829120635986328 [sec]
+2025-03-01 17:36:04,986 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:36:05,066 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6%E3%80%82%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F&speaker=2 HTTP/1.1" 200 4818
+2025-03-01 17:36:05,068 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:36:08,796 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 206892
+2025-03-01 17:36:08,799 [INFO] 音声が output.wav に保存されました。
+2025-03-01 17:36:08,799 [INFO] 音声合成時間: 3.8160290718078613 [sec]
+2025-03-01 17:36:08,845 [INFO] 音声ファイル output.wav を返します。
+2025-03-01 17:36:08,900 [INFO] 127.0.0.1 - - [01/Mar/2025 17:36:08] "[35m[1mGET /audio/output.wav HTTP/1.1[0m" 206 -
+2025-03-01 17:36:09,026 [INFO] 127.0.0.1 - - [01/Mar/2025 17:36:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 17:36:32,821 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:36:32,828 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:36:34,234 [INFO] 音声認識結果: ちょっと悩み事があります
+2025-03-01 17:36:34,235 [INFO] 音声認識時間: 1.4069569110870361 [sec]
+2025-03-01 17:36:34,236 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 17:36:34,241 [INFO] 127.0.0.1 - - [01/Mar/2025 17:36:34] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:36:34,347 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。どのようなお手伝いができますか？'}, {'role': 'user', 'content': 'ちょっと悩み事があります'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:36:34,348 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:36:34,349 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:36:34,367 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1120c8f50>
+2025-03-01 17:36:34,368 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x112041400> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:36:34,388 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x111f89810>
+2025-03-01 17:36:34,388 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:36:34,389 [DEBUG] send_request_headers.complete
+2025-03-01 17:36:34,389 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:36:34,389 [DEBUG] send_request_body.complete
+2025-03-01 17:36:34,389 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:36:35,258 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:36:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'577'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199935'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'19ms'), (b'x-request-id', b'req_a035b81785ba5f217e4cdcec07e60128'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=PqxMJy4MHEtCLi_t0APBu565tyM.HTvzbaF01V9Z48M-1740818195-1.0.1.1-5jOwmgfchce9Rha0V3MS85Jbf6hEGTi6Vc2VjIr7O9C6YmRAqpSAKwkLs3N5G8PuJPFolXbrkm3J4uySSwRD.r8T6Zfg0ZgxoRQ3eka6Zyg; path=/; expires=Sat, 01-Mar-25 09:06:35 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=tYL.VCgaZ80xCSIwUAzqnzee39_Cah_QBQ9W5uV_3Jo-1740818195556-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'919753d5592efcc7-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:36:35,260 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:36:35,260 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:36:35,261 [DEBUG] receive_response_body.complete
+2025-03-01 17:36:35,261 [DEBUG] response_closed.started
+2025-03-01 17:36:35,262 [DEBUG] response_closed.complete
+2025-03-01 17:36:35,262 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:36:35 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '577'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199935'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '19ms'), ('x-request-id', 'req_a035b81785ba5f217e4cdcec07e60128'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=PqxMJy4MHEtCLi_t0APBu565tyM.HTvzbaF01V9Z48M-1740818195-1.0.1.1-5jOwmgfchce9Rha0V3MS85Jbf6hEGTi6Vc2VjIr7O9C6YmRAqpSAKwkLs3N5G8PuJPFolXbrkm3J4uySSwRD.r8T6Zfg0ZgxoRQ3eka6Zyg; path=/; expires=Sat, 01-Mar-25 09:06:35 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=tYL.VCgaZ80xCSIwUAzqnzee39_Cah_QBQ9W5uV_3Jo-1740818195556-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '919753d5592efcc7-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:36:35,262 [DEBUG] request_id: req_a035b81785ba5f217e4cdcec07e60128
+2025-03-01 17:36:35,265 [INFO] AIの応答: そうですか、お悩みについてお聞かせいただけますか？できる限りお手伝いします。
+2025-03-01 17:36:35,265 [INFO] AIレスポンス時間: 1.0279889106750488 [sec]
+2025-03-01 17:36:35,269 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:36:35,311 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%9D%E3%81%86%E3%81%A7%E3%81%99%E3%81%8B%E3%80%81%E3%81%8A%E6%82%A9%E3%81%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%8A%E8%81%9E%E3%81%8B%E3%81%9B%E3%81%84%E3%81%9F%E3%81%A0%E3%81%91%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F%E3%81%A7%E3%81%8D%E3%82%8B%E9%99%90%E3%82%8A%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%81%97%E3%81%BE%E3%81%99%E3%80%82&speaker=2 HTTP/1.1" 200 6348
+2025-03-01 17:36:35,312 [DEBUG] close.started
+2025-03-01 17:36:35,313 [DEBUG] close.complete
+2025-03-01 17:36:35,319 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:36:40,165 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 269356
+2025-03-01 17:36:40,170 [INFO] 音声が output.wav に保存されました。
+2025-03-01 17:36:40,170 [INFO] 音声合成時間: 4.905133962631226 [sec]
+2025-03-01 17:52:52,963 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 17:52:53,012 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 17:52:53,012 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 17:52:53,012 [INFO]  * Restarting with stat
+2025-03-01 17:53:01,183 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 17:53:01,222 [WARNING]  * Debugger is active!
+2025-03-01 17:53:01,242 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 17:53:11,717 [INFO] index.html を返します。
+2025-03-01 17:53:11,738 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:11] "GET / HTTP/1.1" 200 -
+2025-03-01 17:53:12,120 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 17:53:12,378 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "GET /socket.io/?EIO=4&transport=polling&t=PLGwDcU HTTP/1.1" 200 -
+2025-03-01 17:53:12,404 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:12,408 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "POST /socket.io/?EIO=4&transport=polling&t=PLGwDfH&sid=_kvxgcghVqrckVlJAAAA HTTP/1.1" 200 -
+2025-03-01 17:53:12,424 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "GET /socket.io/?EIO=4&transport=polling&t=PLGwDfN&sid=_kvxgcghVqrckVlJAAAA HTTP/1.1" 200 -
+2025-03-01 17:53:12,435 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 17:53:12,439 [INFO] speaker_ids を取得しました。
+2025-03-01 17:53:12,441 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 17:53:12,454 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "GET /socket.io/?EIO=4&transport=polling&t=PLGwDg1&sid=_kvxgcghVqrckVlJAAAA HTTP/1.1" 200 -
+2025-03-01 17:53:12,488 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "GET /socket.io/?EIO=4&transport=polling&t=PLGwDgW&sid=_kvxgcghVqrckVlJAAAA HTTP/1.1" 200 -
+2025-03-01 17:53:12,601 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 17:53:15,641 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:15] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 17:53:24,681 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:53:24,695 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:53:25,735 [INFO] 音声認識結果: こんにちは初めまして
+2025-03-01 17:53:25,735 [INFO] 音声認識時間: 1.0404670238494873 [sec]
+2025-03-01 17:53:25,736 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 17:53:25,743 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:25] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:53:25,935 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:53:25,936 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:53:25,937 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:53:25,991 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11140fcb0>
+2025-03-01 17:53:25,992 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x111382de0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:53:26,015 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1112c1f90>
+2025-03-01 17:53:26,015 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:26,016 [DEBUG] send_request_headers.complete
+2025-03-01 17:53:26,016 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:53:26,017 [DEBUG] send_request_body.complete
+2025-03-01 17:53:26,017 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:27,408 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:53:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'833'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199967'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_16fd3bad3db150b14b7683675dd37d56'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=j51e4j5BMLP6JmRCpPq2o6PU.5btNhDbb6gW9z5QE9E-1740819207-1.0.1.1-17mEiFNMuw40R84_wOFcJnXVmvd5AKLraM_UWnCz1DrOTZkl1CgYFnNYr1mENdVDf1ZkG_1zlbgE7jfddqPLsXNqtS9h4AiEfrQ0fozgjWo; path=/; expires=Sat, 01-Mar-25 09:23:27 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=7r0K0ycQFSskHbvkAENnay.Dcbqf1cDXCcX0UE8fIQw-1740819207499-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91976c86ae09b011-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:53:27,409 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:53:27,409 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:53:27,410 [DEBUG] receive_response_body.complete
+2025-03-01 17:53:27,410 [DEBUG] response_closed.started
+2025-03-01 17:53:27,410 [DEBUG] response_closed.complete
+2025-03-01 17:53:27,410 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:53:27 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '833'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199967'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_16fd3bad3db150b14b7683675dd37d56'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=j51e4j5BMLP6JmRCpPq2o6PU.5btNhDbb6gW9z5QE9E-1740819207-1.0.1.1-17mEiFNMuw40R84_wOFcJnXVmvd5AKLraM_UWnCz1DrOTZkl1CgYFnNYr1mENdVDf1ZkG_1zlbgE7jfddqPLsXNqtS9h4AiEfrQ0fozgjWo; path=/; expires=Sat, 01-Mar-25 09:23:27 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=7r0K0ycQFSskHbvkAENnay.Dcbqf1cDXCcX0UE8fIQw-1740819207499-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91976c86ae09b011-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:53:27,411 [DEBUG] request_id: req_16fd3bad3db150b14b7683675dd37d56
+2025-03-01 17:53:27,435 [INFO] AIの応答: こんにちは！初めまして。どうぞよろしくお願いします。何かお手伝いできることがあれば教えてください。
+2025-03-01 17:53:27,435 [INFO] AIレスポンス時間: 1.6970908641815186 [sec]
+2025-03-01 17:53:27,438 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:27,497 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6%E3%80%82%E3%81%A9%E3%81%86%E3%81%9E%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%E4%BD%95%E3%81%8B%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8C%E3%81%B0%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&speaker=2 HTTP/1.1" 200 8523
+2025-03-01 17:53:27,501 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:33,126 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 346156
+2025-03-01 17:53:33,131 [INFO] 音声が output.wav に保存されました。
+2025-03-01 17:53:33,131 [INFO] 音声合成時間: 5.696599960327148 [sec]
+2025-03-01 17:53:33,213 [INFO] 音声ファイル output.wav を返します。
+2025-03-01 17:53:33,215 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:33] "[35m[1mGET /audio/output.wav HTTP/1.1[0m" 206 -
+2025-03-01 17:53:33,299 [INFO] 音声ファイル output.wav を返します。
+2025-03-01 17:53:33,302 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:33] "[35m[1mGET /audio/output.wav HTTP/1.1[0m" 206 -
+2025-03-01 17:53:33,401 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 17:53:50,762 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:53:50,775 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:53:54,063 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:53:54,078 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:53:54,496 [INFO] 音声ファイルをアップロードします。
+2025-03-01 17:53:54,507 [INFO] Saved audio file to uploads/input.wav
+2025-03-01 17:53:55,343 [INFO] 音声認識結果: 今日の天気は晴れでした
+2025-03-01 17:53:55,343 [INFO] 音声認識時間: 1.2652559280395508 [sec]
+2025-03-01 17:53:55,344 [INFO] AIの応答を取得します。音声合成スピーカーID: 4
+2025-03-01 17:53:55,362 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:55] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:53:55,567 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。どうぞよろしくお願いします。何かお手伝いできることがあれば教えてください。'}, {'role': 'user', 'content': '今日の天気は晴れでした'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:53:55,568 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:53:55,570 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:53:55,585 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11148d590>
+2025-03-01 17:53:55,585 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x1113ed7f0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:53:55,607 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x111365f30>
+2025-03-01 17:53:55,608 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:55,610 [DEBUG] send_request_headers.complete
+2025-03-01 17:53:55,610 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:53:55,610 [DEBUG] send_request_body.complete
+2025-03-01 17:53:55,610 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:55,800 [INFO] 音声認識結果: 今日の天気は晴れでした
+2025-03-01 17:53:55,801 [INFO] 音声認識時間: 1.2937321662902832 [sec]
+2025-03-01 17:53:55,803 [INFO] AIの応答を取得します。音声合成スピーカーID: 4
+2025-03-01 17:53:55,818 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:55] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:53:56,018 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。どうぞよろしくお願いします。何かお手伝いできることがあれば教えてください。'}, {'role': 'user', 'content': '今日の天気は晴れでした'}, {'role': 'user', 'content': '今日の天気は晴れでした'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:53:56,019 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:53:56,021 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:53:56,036 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1113668b0>
+2025-03-01 17:53:56,036 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x1113ed6d0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:53:56,057 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11133d250>
+2025-03-01 17:53:56,057 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:56,058 [DEBUG] send_request_headers.complete
+2025-03-01 17:53:56,058 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:53:56,058 [DEBUG] send_request_body.complete
+2025-03-01 17:53:56,058 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:56,367 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:53:56 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'524'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199920'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'24ms'), (b'x-request-id', b'req_5b6256da44df6125765c47b703a01537'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=BCdRWyjLgZ7OgJR0oDoi415qr5I5jQg7p8CEHB4aeSc-1740819236-1.0.1.1-ySVQe96PjUbzDf5Cs8bk3xkBq96P7wNfcZo277BFffTzs0wI9RvysSc3cDapujKFWKmd1MNFWhciMtUqbGCxJWSjCagynjPkcAHoGwpRfGI; path=/; expires=Sat, 01-Mar-25 09:23:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=_TqmQfm8enlhsb9ZaBtdQGSuvgE_yBogFNAw1RlAROQ-1740819236519-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91976d3f9cb0ebfb-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:53:56,369 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:53:56,369 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:53:56,370 [DEBUG] receive_response_body.complete
+2025-03-01 17:53:56,370 [DEBUG] response_closed.started
+2025-03-01 17:53:56,370 [DEBUG] response_closed.complete
+2025-03-01 17:53:56,371 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:53:56 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '524'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199920'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '24ms'), ('x-request-id', 'req_5b6256da44df6125765c47b703a01537'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=BCdRWyjLgZ7OgJR0oDoi415qr5I5jQg7p8CEHB4aeSc-1740819236-1.0.1.1-ySVQe96PjUbzDf5Cs8bk3xkBq96P7wNfcZo277BFffTzs0wI9RvysSc3cDapujKFWKmd1MNFWhciMtUqbGCxJWSjCagynjPkcAHoGwpRfGI; path=/; expires=Sat, 01-Mar-25 09:23:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=_TqmQfm8enlhsb9ZaBtdQGSuvgE_yBogFNAw1RlAROQ-1740819236519-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91976d3f9cb0ebfb-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:53:56,371 [DEBUG] request_id: req_5b6256da44df6125765c47b703a01537
+2025-03-01 17:53:56,374 [INFO] AIの応答: 晴れの日は気持ちがいいですよね！どこかに出かけましたか？それとも、晴れた日を家で楽しんでいましたか？
+2025-03-01 17:53:56,374 [INFO] AIレスポンス時間: 1.0290629863739014 [sec]
+2025-03-01 17:53:56,378 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:56,434 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E6%99%B4%E3%82%8C%E3%81%AE%E6%97%A5%E3%81%AF%E6%B0%97%E6%8C%81%E3%81%A1%E3%81%8C%E3%81%84%E3%81%84%E3%81%A7%E3%81%99%E3%82%88%E3%81%AD%EF%BC%81%E3%81%A9%E3%81%93%E3%81%8B%E3%81%AB%E5%87%BA%E3%81%8B%E3%81%91%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F%E3%81%9D%E3%82%8C%E3%81%A8%E3%82%82%E3%80%81%E6%99%B4%E3%82%8C%E3%81%9F%E6%97%A5%E3%82%92%E5%AE%B6%E3%81%A7%E6%A5%BD%E3%81%97%E3%82%93%E3%81%A7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F&speaker=4 HTTP/1.1" 200 8263
+2025-03-01 17:53:56,438 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:56,947 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:53:57 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'674'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199911'), (b'x-ratelimit-reset-requests', b'16.846s'), (b'x-ratelimit-reset-tokens', b'26ms'), (b'x-request-id', b'req_def72881caeb4badfea0bd54c0847e7e'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=PmKXRVdaqhBxfD0EsEFA0uaaf921hUmHfnZzD.ScORI-1740819237-1.0.1.1-rgBDKi5XL5cXr0e30J4wHN2d3mq4.FaKSSO9utpTHA8THi1KlcnWqMRcH81FHRE4iwnpWWXsirtae.4QO.BSLwpSDQf32ISb9xDrYvkFsU8; path=/; expires=Sat, 01-Mar-25 09:23:57 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=nVMFS1M.Js..RZSr8bC.KCe1mmuDYrHpvGdimQvWQKA-1740819237100-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91976d4269d0d78b-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:53:56,948 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:53:56,948 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:53:56,950 [DEBUG] receive_response_body.complete
+2025-03-01 17:53:56,951 [DEBUG] response_closed.started
+2025-03-01 17:53:56,951 [DEBUG] response_closed.complete
+2025-03-01 17:53:56,951 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:53:57 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '674'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9998'), ('x-ratelimit-remaining-tokens', '199911'), ('x-ratelimit-reset-requests', '16.846s'), ('x-ratelimit-reset-tokens', '26ms'), ('x-request-id', 'req_def72881caeb4badfea0bd54c0847e7e'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=PmKXRVdaqhBxfD0EsEFA0uaaf921hUmHfnZzD.ScORI-1740819237-1.0.1.1-rgBDKi5XL5cXr0e30J4wHN2d3mq4.FaKSSO9utpTHA8THi1KlcnWqMRcH81FHRE4iwnpWWXsirtae.4QO.BSLwpSDQf32ISb9xDrYvkFsU8; path=/; expires=Sat, 01-Mar-25 09:23:57 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=nVMFS1M.Js..RZSr8bC.KCe1mmuDYrHpvGdimQvWQKA-1740819237100-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91976d4269d0d78b-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:53:56,951 [DEBUG] request_id: req_def72881caeb4badfea0bd54c0847e7e
+2025-03-01 17:53:56,954 [INFO] AIの応答: そうですか！晴れた日だと気分も良くなりますね。お出かけされたりしましたか？それとも、何か特別なことをされましたか？
+2025-03-01 17:53:56,954 [INFO] AIレスポンス時間: 1.1491010189056396 [sec]
+2025-03-01 17:53:56,960 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:53:57,997 [INFO] 音声認識結果: 今日の天気は晴れでした
+2025-03-01 17:53:57,997 [INFO] 音声認識時間: 7.222553253173828 [sec]
+2025-03-01 17:53:57,998 [INFO] AIの応答を取得します。音声合成スピーカーID: 4
+2025-03-01 17:53:58,005 [INFO] 127.0.0.1 - - [01/Mar/2025 17:53:58] "POST /upload HTTP/1.1" 200 -
+2025-03-01 17:53:58,169 [DEBUG] close.started
+2025-03-01 17:53:58,169 [DEBUG] close.complete
+2025-03-01 17:53:58,186 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。どうぞよろしくお願いします。何かお手伝いできることがあれば教えてください。'}, {'role': 'user', 'content': '今日の天気は晴れでした'}, {'role': 'user', 'content': '今日の天気は晴れでした'}, {'role': 'assistant', 'content': '晴れの日は気持ちがいいですよね！どこかに出かけましたか？それとも、晴れた日を家で楽しんでいましたか？'}, {'role': 'assistant', 'content': 'そうですか！晴れた日だと気分も良くなりますね。お出かけされたりしましたか？それとも、何か特別なことをされましたか？'}, {'role': 'user', 'content': '今日の天気は晴れでした'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 17:53:58,188 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 17:53:58,188 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 17:53:58,201 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1113ab240>
+2025-03-01 17:53:58,202 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x1113eda30> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 17:53:58,220 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1113ab460>
+2025-03-01 17:53:58,220 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:58,221 [DEBUG] send_request_headers.complete
+2025-03-01 17:53:58,221 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 17:53:58,221 [DEBUG] send_request_body.complete
+2025-03-01 17:53:58,221 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 17:53:59,426 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 08:53:59 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'927'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9997'), (b'x-ratelimit-remaining-tokens', b'199818'), (b'x-ratelimit-reset-requests', b'23.267s'), (b'x-ratelimit-reset-tokens', b'54ms'), (b'x-request-id', b'req_c10cda29f1d8dbf199388737dd8add75'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=qoFKK8zkl8Vbc43vvwsVUKzbUVcKjCnG9L0uhFg6EQM-1740819239-1.0.1.1-WnS1idFrRTH1HOGZ5yYw0twE5uzLp52vl9Yp_TYen6K89kT9LI5RKgcBP.VhVMEU.8zoXVZPt_FovX.tVctoZrVg_J6EWRf0fYAn.8vN2yQ; path=/; expires=Sat, 01-Mar-25 09:23:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=1c97peMAyLUbisiOij.weAE.m9M3VMbkTaR9VgGbVXw-1740819239579-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91976d4fee3e7374-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 17:53:59,428 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 17:53:59,428 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 17:53:59,428 [DEBUG] receive_response_body.complete
+2025-03-01 17:53:59,428 [DEBUG] response_closed.started
+2025-03-01 17:53:59,429 [DEBUG] response_closed.complete
+2025-03-01 17:53:59,429 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 08:53:59 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '927'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9997'), ('x-ratelimit-remaining-tokens', '199818'), ('x-ratelimit-reset-requests', '23.267s'), ('x-ratelimit-reset-tokens', '54ms'), ('x-request-id', 'req_c10cda29f1d8dbf199388737dd8add75'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=qoFKK8zkl8Vbc43vvwsVUKzbUVcKjCnG9L0uhFg6EQM-1740819239-1.0.1.1-WnS1idFrRTH1HOGZ5yYw0twE5uzLp52vl9Yp_TYen6K89kT9LI5RKgcBP.VhVMEU.8zoXVZPt_FovX.tVctoZrVg_J6EWRf0fYAn.8vN2yQ; path=/; expires=Sat, 01-Mar-25 09:23:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=1c97peMAyLUbisiOij.weAE.m9M3VMbkTaR9VgGbVXw-1740819239579-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91976d4fee3e7374-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 17:53:59,429 [DEBUG] request_id: req_c10cda29f1d8dbf199388737dd8add75
+2025-03-01 17:53:59,431 [INFO] AIの応答: 晴れの日は気持ちが良いですね。何か特別なことをする予定でしたか、またはどこかにお出かけされましたか？それとも、ゆっくり過ごされたのでしょうか？
+2025-03-01 17:53:59,432 [INFO] AIレスポンス時間: 1.4331719875335693 [sec]
+2025-03-01 17:53:59,436 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:54:03,682 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%9D%E3%81%86%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%81%E6%99%B4%E3%82%8C%E3%81%9F%E6%97%A5%E3%81%A0%E3%81%A8%E6%B0%97%E5%88%86%E3%82%82%E8%89%AF%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%81%AD%E3%80%82%E3%81%8A%E5%87%BA%E3%81%8B%E3%81%91%E3%81%95%E3%82%8C%E3%81%9F%E3%82%8A%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F%E3%81%9D%E3%82%8C%E3%81%A8%E3%82%82%E3%80%81%E4%BD%95%E3%81%8B%E7%89%B9%E5%88%A5%E3%81%AA%E3%81%93%E3%81%A8%E3%82%92%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F&speaker=4 HTTP/1.1" 200 9635
+2025-03-01 17:54:03,685 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=4 HTTP/1.1" 200 427052
+2025-03-01 17:54:03,689 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E6%99%B4%E3%82%8C%E3%81%AE%E6%97%A5%E3%81%AF%E6%B0%97%E6%8C%81%E3%81%A1%E3%81%8C%E8%89%AF%E3%81%84%E3%81%A7%E3%81%99%E3%81%AD%E3%80%82%E4%BD%95%E3%81%8B%E7%89%B9%E5%88%A5%E3%81%AA%E3%81%93%E3%81%A8%E3%82%92%E3%81%99%E3%82%8B%E4%BA%88%E5%AE%9A%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B%E3%80%81%E3%81%BE%E3%81%9F%E3%81%AF%E3%81%A9%E3%81%93%E3%81%8B%E3%81%AB%E3%81%8A%E5%87%BA%E3%81%8B%E3%81%91%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F%E3%81%9D%E3%82%8C%E3%81%A8%E3%82%82%E3%80%81%E3%82%86%E3%81%A3%E3%81%8F%E3%82%8A%E9%81%8E%E3%81%94%E3%81%95%E3%82%8C%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B%EF%BC%9F&speaker=4 HTTP/1.1" 200 11791
+2025-03-01 17:54:03,691 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:54:03,698 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 17:54:03,705 [INFO] 音声が output.wav に保存されました。
+2025-03-01 17:54:03,705 [INFO] 音声合成時間: 7.3308799266815186 [sec]
+2025-03-01 17:54:12,970 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=4 HTTP/1.1" 200 501804
+2025-03-01 17:54:12,980 [INFO] 音声が output.wav に保存されました。
+2025-03-01 17:54:12,980 [INFO] 音声合成時間: 16.02663516998291 [sec]
+2025-03-01 21:02:14,000 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:02:14,047 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 21:02:14,048 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 21:02:14,048 [INFO]  * Restarting with stat
+2025-03-01 21:02:22,364 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:02:22,404 [WARNING]  * Debugger is active!
+2025-03-01 21:02:22,429 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 21:02:22,503 [INFO] index.html を返します。
+2025-03-01 21:02:22,514 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET / HTTP/1.1" 200 -
+2025-03-01 21:02:22,669 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:02:22,760 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET /socket.io/?EIO=4&transport=polling&t=PLHbWjl HTTP/1.1" 200 -
+2025-03-01 21:02:22,789 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:02:22,819 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 21:02:22,824 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "POST /socket.io/?EIO=4&transport=polling&t=PLHbWlI&sid=w24WKpKefF4Bvp7cAAAA HTTP/1.1" 200 -
+2025-03-01 21:02:22,829 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET /socket.io/?EIO=4&transport=polling&t=PLHbWlM&sid=w24WKpKefF4Bvp7cAAAA HTTP/1.1" 200 -
+2025-03-01 21:02:22,831 [INFO] speaker_ids を取得しました。
+2025-03-01 21:02:22,833 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 21:02:22,960 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET /socket.io/?EIO=4&transport=polling&t=PLHbWnj&sid=w24WKpKefF4Bvp7cAAAA HTTP/1.1" 200 -
+2025-03-01 21:02:22,973 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:22] "GET /socket.io/?EIO=4&transport=polling&t=PLHbWnv&sid=w24WKpKefF4Bvp7cAAAA HTTP/1.1" 200 -
+2025-03-01 21:02:23,194 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 21:02:26,155 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:26] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:02:46,094 [INFO] 127.0.0.1 - - [01/Mar/2025 21:02:46] "GET /socket.io/?EIO=4&transport=websocket&sid=w24WKpKefF4Bvp7cAAAA HTTP/1.1" 200 -
+2025-03-01 21:21:35,873 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:21:35,919 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 21:21:35,919 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 21:21:35,921 [INFO]  * Restarting with stat
+2025-03-01 21:21:43,693 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:21:43,731 [WARNING]  * Debugger is active!
+2025-03-01 21:21:43,751 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 21:21:43,797 [INFO] index.html を返します。
+2025-03-01 21:21:43,805 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:43] "GET / HTTP/1.1" 200 -
+2025-03-01 21:21:43,937 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:43] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:21:44,062 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "GET /socket.io/?EIO=4&transport=polling&t=PLHfyFH HTTP/1.1" 200 -
+2025-03-01 21:21:44,094 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:21:44,109 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 21:21:44,158 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "POST /socket.io/?EIO=4&transport=polling&t=PLHfyGq&sid=rlRPkRTq0e8I_C9bAAAA HTTP/1.1" 200 -
+2025-03-01 21:21:44,162 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "GET /socket.io/?EIO=4&transport=polling&t=PLHfyGs&sid=rlRPkRTq0e8I_C9bAAAA HTTP/1.1" 200 -
+2025-03-01 21:21:44,151 [INFO] speaker_ids を取得しました。
+2025-03-01 21:21:44,175 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 21:21:44,268 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "GET /socket.io/?EIO=4&transport=polling&t=PLHfyJ8&sid=rlRPkRTq0e8I_C9bAAAA HTTP/1.1" 200 -
+2025-03-01 21:21:44,382 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "GET /socket.io/?EIO=4&transport=polling&t=PLHfyKw&sid=rlRPkRTq0e8I_C9bAAAA HTTP/1.1" 200 -
+2025-03-01 21:21:44,672 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 21:21:48,778 [INFO] 127.0.0.1 - - [01/Mar/2025 21:21:48] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:21:58,805 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'マイクテスト マイク'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 21:21:58,807 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 21:21:58,807 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 21:21:58,850 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10615bb60>
+2025-03-01 21:21:58,850 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x106092d50> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 21:21:58,877 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105fc6fd0>
+2025-03-01 21:21:58,878 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 21:21:58,879 [DEBUG] send_request_headers.complete
+2025-03-01 21:21:58,879 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 21:21:58,879 [DEBUG] send_request_body.complete
+2025-03-01 21:21:58,879 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 21:22:00,488 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 12:22:00 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'936'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199968'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_a2b68475e5887505ab1920e12c8b3c38'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=KkqsThDFmcvlTdqWQnkwZUcDfSRfrXCAXBsmTyPzmSQ-1740831720-1.0.1.1-GVRXW8em7jYqIHKeis9nnyLyo87R.wTnfWzxyIOZWC6BR1o9cYHlwNDpUGrVa0jFe12XSZo6Kd9L2D_lYXNQbZQnFpWKSdJCM34zxF0Wx2c; path=/; expires=Sat, 01-Mar-25 12:52:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Fi9qLf5AENSTXLSycAy_oY2w2R54HZbPxoZ9z6fmEaQ-1740831720654-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91989e042ad3fcbe-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 21:22:00,489 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 21:22:00,490 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 21:22:00,491 [DEBUG] receive_response_body.complete
+2025-03-01 21:22:00,491 [DEBUG] response_closed.started
+2025-03-01 21:22:00,491 [DEBUG] response_closed.complete
+2025-03-01 21:22:00,492 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 12:22:00 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '936'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199968'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_a2b68475e5887505ab1920e12c8b3c38'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=KkqsThDFmcvlTdqWQnkwZUcDfSRfrXCAXBsmTyPzmSQ-1740831720-1.0.1.1-GVRXW8em7jYqIHKeis9nnyLyo87R.wTnfWzxyIOZWC6BR1o9cYHlwNDpUGrVa0jFe12XSZo6Kd9L2D_lYXNQbZQnFpWKSdJCM34zxF0Wx2c; path=/; expires=Sat, 01-Mar-25 12:52:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=Fi9qLf5AENSTXLSycAy_oY2w2R54HZbPxoZ9z6fmEaQ-1740831720654-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91989e042ad3fcbe-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 21:22:00,492 [DEBUG] request_id: req_a2b68475e5887505ab1920e12c8b3c38
+2025-03-01 21:22:00,523 [INFO] AIの応答: マイクテストについての情報やアドバイスが必要でしょうか？マイクの設定や音質チェックの方法についてお答えできますので、具体的な質問があれば教えてください。
+2025-03-01 21:22:00,527 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:22:00,618 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%86%E3%82%B9%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%84%E3%82%A2%E3%83%89%E3%83%90%E3%82%A4%E3%82%B9%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B%EF%BC%9F%E3%83%9E%E3%82%A4%E3%82%AF%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%84%E9%9F%B3%E8%B3%AA%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%AE%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%8A%E7%AD%94%E3%81%88%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%AE%E3%81%A7%E3%80%81%E5%85%B7%E4%BD%93%E7%9A%84%E3%81%AA%E8%B3%AA%E5%95%8F%E3%81%8C%E3%81%82%E3%82%8C%E3%81%B0%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&speaker=2 HTTP/1.1" 200 13831
+2025-03-01 21:22:00,621 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:22:08,526 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 541740
+2025-03-01 21:22:08,535 [INFO] 音声が output_3.wav に保存されました。
+2025-03-01 21:22:08,538 [INFO] 127.0.0.1 - - [01/Mar/2025 21:22:08] "POST /upload HTTP/1.1" 200 -
+2025-03-01 21:22:08,568 [INFO] 127.0.0.1 - - [01/Mar/2025 21:22:08] "GET /audio/output_3.wav HTTP/1.1" 200 -
+2025-03-01 21:22:08,585 [INFO] 127.0.0.1 - - [01/Mar/2025 21:22:08] "[35m[1mGET /audio/output_3.wav HTTP/1.1[0m" 206 -
+2025-03-01 21:22:08,645 [INFO] 127.0.0.1 - - [01/Mar/2025 21:22:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 21:22:08,759 [INFO] 127.0.0.1 - - [01/Mar/2025 21:22:08] "[35m[1mGET /audio/output_3.wav HTTP/1.1[0m" 206 -
+2025-03-01 21:23:07,921 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'マイクテスト マイク'}, {'role': 'assistant', 'content': 'マイクテストについての情報やアドバイスが必要でしょうか？マイクの設定や音質チェックの方法についてお答えできますので、具体的な質問があれば教えてください。'}, {'role': 'user', 'content': 'マイクテストマイクテスト もう一度 マイクて'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 21:23:07,923 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 21:23:07,924 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 21:23:07,938 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1061d0910>
+2025-03-01 21:23:07,939 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x106141640> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 21:23:07,964 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10607c2b0>
+2025-03-01 21:23:07,964 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 21:23:07,965 [DEBUG] send_request_headers.complete
+2025-03-01 21:23:07,965 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 21:23:07,966 [DEBUG] send_request_body.complete
+2025-03-01 21:23:07,966 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 21:23:09,323 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 12:23:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'1085'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199892'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'32ms'), (b'x-request-id', b'req_0fddff3e630d7108df124d1c3955d73d'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=M8N6AwJx10i..0O2cCYp6LeSfOd3djXUwtbqgxLBrd8-1740831789-1.0.1.1-.5qxC5z9x0uTY8UMYP8EpBCZd6o3rvfJborLs9XTUsZ6jOLr3YilE2Jk40FyvDeooYqRNFL6QmlU8xhNmcIb0YAzVHjHa5SD7sS59WcDts4; path=/; expires=Sat, 01-Mar-25 12:53:09 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=pBIsnABTxHmqdKN8Uv5Hn7v6TGIREYmC54KQ5qOLLpY-1740831789449-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91989fb3defdd775-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 21:23:09,324 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 21:23:09,324 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 21:23:09,325 [DEBUG] receive_response_body.complete
+2025-03-01 21:23:09,325 [DEBUG] response_closed.started
+2025-03-01 21:23:09,325 [DEBUG] response_closed.complete
+2025-03-01 21:23:09,325 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 12:23:09 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '1085'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199892'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '32ms'), ('x-request-id', 'req_0fddff3e630d7108df124d1c3955d73d'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=M8N6AwJx10i..0O2cCYp6LeSfOd3djXUwtbqgxLBrd8-1740831789-1.0.1.1-.5qxC5z9x0uTY8UMYP8EpBCZd6o3rvfJborLs9XTUsZ6jOLr3YilE2Jk40FyvDeooYqRNFL6QmlU8xhNmcIb0YAzVHjHa5SD7sS59WcDts4; path=/; expires=Sat, 01-Mar-25 12:53:09 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=pBIsnABTxHmqdKN8Uv5Hn7v6TGIREYmC54KQ5qOLLpY-1740831789449-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91989fb3defdd775-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 21:23:09,326 [DEBUG] request_id: req_0fddff3e630d7108df124d1c3955d73d
+2025-03-01 21:23:09,328 [INFO] AIの応答: マイクテスト、マイクテスト、もう一度！音声チェックの際、何か特定の状況や機器についての質問があれば教えてください。音声の品質や設定についてのアドバイスもできます！
+2025-03-01 21:23:09,328 [INFO] AIの応答を取得します。音声合成スピーカーID: 38
+2025-03-01 21:23:09,333 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:09,785 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%86%E3%82%B9%E3%83%88%E3%80%81%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%86%E3%82%B9%E3%83%88%E3%80%81%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%EF%BC%81&speaker=38 HTTP/1.1" 200 3044
+2025-03-01 21:23:09,789 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:12,681 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=38 HTTP/1.1" 200 179244
+2025-03-01 21:23:13,001 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:13,071 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E9%9F%B3%E5%A3%B0%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%AE%E9%9A%9B%E3%80%81%E4%BD%95%E3%81%8B%E7%89%B9%E5%AE%9A%E3%81%AE%E7%8A%B6%E6%B3%81%E3%82%84%E6%A9%9F%E5%99%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E8%B3%AA%E5%95%8F%E3%81%8C%E3%81%82%E3%82%8C%E3%81%B0%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&speaker=38 HTTP/1.1" 200 7601
+2025-03-01 21:23:13,086 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:19,094 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=38 HTTP/1.1" 200 317996
+2025-03-01 21:23:19,500 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:19,518 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E9%9F%B3%E5%A3%B0%E3%81%AE%E5%93%81%E8%B3%AA%E3%82%84%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%82%A2%E3%83%89%E3%83%90%E3%82%A4%E3%82%B9%E3%82%82%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%EF%BC%81&speaker=38 HTTP/1.1" 200 4720
+2025-03-01 21:23:19,524 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:23:25,685 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=38 HTTP/1.1" 200 183340
+2025-03-01 21:23:26,043 [INFO] 127.0.0.1 - - [01/Mar/2025 21:23:26] "POST /streaming HTTP/1.1" 200 -
+2025-03-01 21:30:09,866 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:30:09,916 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 21:30:09,917 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 21:30:09,917 [INFO]  * Restarting with stat
+2025-03-01 21:30:14,815 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 21:30:14,855 [WARNING]  * Debugger is active!
+2025-03-01 21:30:14,876 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 21:30:46,191 [INFO] index.html を返します。
+2025-03-01 21:30:46,213 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "GET / HTTP/1.1" 200 -
+2025-03-01 21:30:46,314 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:30:46,499 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "GET /socket.io/?EIO=4&transport=polling&t=PLHi0fy HTTP/1.1" 200 -
+2025-03-01 21:30:46,578 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:30:46,599 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 21:30:46,614 [INFO] speaker_ids を取得しました。
+2025-03-01 21:30:46,616 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 21:30:46,756 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "POST /socket.io/?EIO=4&transport=polling&t=PLHi0kF&sid=uboYfk3AEnjRrLcIAAAA HTTP/1.1" 200 -
+2025-03-01 21:30:46,762 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "GET /socket.io/?EIO=4&transport=polling&t=PLHi0kK&sid=uboYfk3AEnjRrLcIAAAA HTTP/1.1" 200 -
+2025-03-01 21:30:46,800 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "GET /socket.io/?EIO=4&transport=polling&t=PLHi0m0&sid=uboYfk3AEnjRrLcIAAAA HTTP/1.1" 200 -
+2025-03-01 21:30:46,835 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 21:30:50,408 [INFO] 127.0.0.1 - - [01/Mar/2025 21:30:50] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 21:30:59,582 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'マイクテスト こんにちは マイクテスト 終了'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 21:30:59,583 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 21:30:59,584 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 21:30:59,625 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11290bb60>
+2025-03-01 21:30:59,625 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x112882c30> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 21:30:59,692 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1127c3610>
+2025-03-01 21:30:59,692 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 21:30:59,693 [DEBUG] send_request_headers.complete
+2025-03-01 21:30:59,693 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 21:30:59,693 [DEBUG] send_request_body.complete
+2025-03-01 21:30:59,694 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 21:31:00,976 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 12:31:01 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'755'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199960'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'12ms'), (b'x-request-id', b'req_0583cdf7ff8f0ec534806117acc49579'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=NRyiPoHG.pkR0wGWKYz9neJwXS4afDeS5olQiQZxWfo-1740832261-1.0.1.1-psB9MDye04gSTi_6v0LiRdiwik7LbD1x3mMvLHly_2xN7dcgHmmZMwFcGiAopnqSr7Fr7OnL.ctZBaHQ6RQQsFiaCSPVk2gJ9WWL1vrsJrw; path=/; expires=Sat, 01-Mar-25 13:01:01 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=UsqKMWc3tLmY_A1uQEaINwaeUhx8HlagPfvEULXmnFQ-1740832261148-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9198ab384adfaffd-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 21:31:00,978 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 21:31:00,978 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 21:31:00,979 [DEBUG] receive_response_body.complete
+2025-03-01 21:31:00,979 [DEBUG] response_closed.started
+2025-03-01 21:31:00,979 [DEBUG] response_closed.complete
+2025-03-01 21:31:00,980 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 12:31:01 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '755'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199960'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '12ms'), ('x-request-id', 'req_0583cdf7ff8f0ec534806117acc49579'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=NRyiPoHG.pkR0wGWKYz9neJwXS4afDeS5olQiQZxWfo-1740832261-1.0.1.1-psB9MDye04gSTi_6v0LiRdiwik7LbD1x3mMvLHly_2xN7dcgHmmZMwFcGiAopnqSr7Fr7OnL.ctZBaHQ6RQQsFiaCSPVk2gJ9WWL1vrsJrw; path=/; expires=Sat, 01-Mar-25 13:01:01 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=UsqKMWc3tLmY_A1uQEaINwaeUhx8HlagPfvEULXmnFQ-1740832261148-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9198ab384adfaffd-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 21:31:00,980 [DEBUG] request_id: req_0583cdf7ff8f0ec534806117acc49579
+2025-03-01 21:31:01,041 [INFO] AIの応答: こんにちは！マイクテストが正常にできたようですね。何かお手伝いできることがあれば教えてください。
+2025-03-01 21:31:01,042 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 21:31:01,049 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:01,076 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81&speaker=2 HTTP/1.1" 200 1022
+2025-03-01 21:31:01,081 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:02,525 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 45100
+2025-03-01 21:31:02,526 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,526 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,526 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,527 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,527 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,528 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,528 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,529 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,537 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,541 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,542 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,544 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,546 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,548 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,557 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,558 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,680 [INFO] 127.0.0.1 - - [01/Mar/2025 21:31:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 21:31:02,682 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,691 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,692 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,693 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,695 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,727 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,728 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,729 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,730 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,731 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,733 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,738 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,739 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,739 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,740 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,740 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,741 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,741 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,742 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,742 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,743 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,745 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,745 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,746 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,748 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,748 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,749 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,750 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,753 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:02,964 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:03,021 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%86%E3%82%B9%E3%83%88%E3%81%8C%E6%AD%A3%E5%B8%B8%E3%81%AB%E3%81%A7%E3%81%8D%E3%81%9F%E3%82%88%E3%81%86%E3%81%A7%E3%81%99%E3%81%AD%E3%80%82&speaker=2 HTTP/1.1" 200 3343
+2025-03-01 21:31:03,027 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:05,212 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 121388
+2025-03-01 21:31:05,213 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,213 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,214 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,215 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,215 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,216 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,216 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,217 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,240 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,247 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,253 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,262 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,266 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,267 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,274 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,296 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,297 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,297 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,298 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,298 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,300 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,304 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,306 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,308 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,309 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,309 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,310 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,316 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,353 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,357 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,358 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,358 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,361 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,361 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,361 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,362 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,363 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,364 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,373 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,374 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,375 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,376 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,377 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,378 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,378 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,379 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,379 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,380 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,381 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,381 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,383 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,383 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,384 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,385 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,389 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,390 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,391 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,392 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,392 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,393 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,395 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,396 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,397 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,399 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,400 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,400 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,401 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,401 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,402 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,404 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,406 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,406 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,407 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,407 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,408 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,408 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,409 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,410 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,411 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,412 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,413 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,414 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,415 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,416 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,417 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,418 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,419 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,419 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,420 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,421 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,422 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,422 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,423 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,424 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,424 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,425 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,426 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,426 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,426 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,427 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,428 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,428 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,429 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,430 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,431 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,431 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,433 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,433 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,434 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,435 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,435 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,436 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,437 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,437 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,438 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,439 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,439 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,439 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,440 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:05,652 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:05,795 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E4%BD%95%E3%81%8B%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8C%E3%81%B0%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&speaker=2 HTTP/1.1" 200 4283
+2025-03-01 21:31:05,838 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 21:31:09,069 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 149548
+2025-03-01 21:31:09,070 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,070 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,070 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,071 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,071 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,072 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,072 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,073 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,073 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,074 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,075 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,075 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,076 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,077 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,078 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,079 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,093 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,106 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,108 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,108 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,109 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,109 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,109 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,109 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,112 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,128 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,130 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,132 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,138 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,239 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,252 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,252 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,254 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,257 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,262 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,263 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,272 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,272 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,273 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,274 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,275 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,275 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,276 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,276 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,278 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,278 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,279 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,280 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,281 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,281 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,282 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,282 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,283 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,283 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,284 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,285 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,286 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,287 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,288 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,289 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,289 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,291 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,292 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,293 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,293 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,294 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,295 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,295 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,296 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,297 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,297 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,298 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,298 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,299 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,299 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,300 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,304 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,306 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,306 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,308 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,309 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,310 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,310 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,311 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,312 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,312 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,313 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,313 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,314 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,314 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,315 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,315 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,316 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,316 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,317 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,317 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,318 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,318 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,319 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,320 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,320 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,321 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,321 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,322 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,322 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,323 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,323 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,323 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,324 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,324 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,325 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,325 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,326 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,326 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,326 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,327 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,327 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,328 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,328 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,329 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,329 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,329 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,332 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,333 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,334 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,336 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,337 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,337 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,338 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,338 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,338 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,339 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,339 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,340 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,340 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,341 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,342 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,343 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,343 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,343 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,343 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,344 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,345 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,346 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,347 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,347 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,347 [INFO] 音声データをストリーミングします。
+2025-03-01 21:31:09,553 [INFO] 127.0.0.1 - - [01/Mar/2025 21:31:09] "POST /streaming HTTP/1.1" 200 -
+2025-03-01 22:16:11,550 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:16:11,594 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 22:16:11,594 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 22:16:11,595 [INFO]  * Restarting with stat
+2025-03-01 22:16:21,299 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:16:21,364 [WARNING]  * Debugger is active!
+2025-03-01 22:16:21,406 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 22:16:47,558 [INFO] index.html を返します。
+2025-03-01 22:16:47,573 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:47] "GET / HTTP/1.1" 200 -
+2025-03-01 22:16:47,745 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:47] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:16:47,999 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:47] "GET /socket.io/?EIO=4&transport=polling&t=PLHsYtb HTTP/1.1" 200 -
+2025-03-01 22:16:48,034 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:16:48,050 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 22:16:48,053 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:48] "POST /socket.io/?EIO=4&transport=polling&t=PLHsYuh&sid=tBZHms11wC-GHPqPAAAA HTTP/1.1" 200 -
+2025-03-01 22:16:48,056 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:48] "GET /socket.io/?EIO=4&transport=polling&t=PLHsYuj&sid=tBZHms11wC-GHPqPAAAA HTTP/1.1" 200 -
+2025-03-01 22:16:48,059 [INFO] speaker_ids を取得しました。
+2025-03-01 22:16:48,065 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:48] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 22:16:48,421 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 22:16:48,427 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:48] "GET /socket.io/?EIO=4&transport=polling&t=PLHsYvh&sid=tBZHms11wC-GHPqPAAAA HTTP/1.1" 200 -
+2025-03-01 22:16:58,945 [INFO] 127.0.0.1 - - [01/Mar/2025 22:16:58] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:17:01,587 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:17:01,588 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:17:01,589 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:17:02,641 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10415bb60>
+2025-03-01 22:17:02,641 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x10409acc0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:17:02,664 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103fc60d0>
+2025-03-01 22:17:02,664 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:17:02,665 [DEBUG] send_request_headers.complete
+2025-03-01 22:17:02,665 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:17:02,665 [DEBUG] send_request_body.complete
+2025-03-01 22:17:02,665 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:17:03,663 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:17:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'475'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199966'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_37eba042104327e41165bfd6a8167940'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=aMX8mVKSaE5DsnDqGEqvs8QNpNPzWCmrwmY9ky9Dw7I-1740835023-1.0.1.1-qxdcuyHXYNXGk3eA0bBXmCNdGCJ9Q51hlIDHaHg.Zm3OKS6vSNi8MkL07jtsq1ohaCkuhReIWjgfs3T92o84Oq7HXomlEG4x1pKCrTPeLT4; path=/; expires=Sat, 01-Mar-25 13:47:03 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=KvmhH1XXIiwnsf5XNnJ1K7zu5cMFDGXsoXc9_Yj6Fhg-1740835023963-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9198eeadbffd688f-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:17:03,665 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:17:03,666 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:17:03,667 [DEBUG] receive_response_body.complete
+2025-03-01 22:17:03,668 [DEBUG] response_closed.started
+2025-03-01 22:17:03,668 [DEBUG] response_closed.complete
+2025-03-01 22:17:03,668 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:17:03 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '475'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199966'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_37eba042104327e41165bfd6a8167940'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=aMX8mVKSaE5DsnDqGEqvs8QNpNPzWCmrwmY9ky9Dw7I-1740835023-1.0.1.1-qxdcuyHXYNXGk3eA0bBXmCNdGCJ9Q51hlIDHaHg.Zm3OKS6vSNi8MkL07jtsq1ohaCkuhReIWjgfs3T92o84Oq7HXomlEG4x1pKCrTPeLT4; path=/; expires=Sat, 01-Mar-25 13:47:03 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=KvmhH1XXIiwnsf5XNnJ1K7zu5cMFDGXsoXc9_Yj6Fhg-1740835023963-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9198eeadbffd688f-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:17:03,669 [DEBUG] request_id: req_37eba042104327e41165bfd6a8167940
+2025-03-01 22:17:03,700 [INFO] AIの応答: こんにちは！初めまして。どんなことをお手伝いできるか教えてください。
+2025-03-01 22:17:03,704 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:17:03,734 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6%E3%80%82%E3%81%A9%E3%82%93%E3%81%AA%E3%81%93%E3%81%A8%E3%82%92%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&speaker=2 HTTP/1.1" 200 5915
+2025-03-01 22:17:03,738 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:17:07,789 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 237612
+2025-03-01 22:17:07,794 [INFO] 音声が output_3.wav に保存されました。
+2025-03-01 22:17:07,795 [INFO] 127.0.0.1 - - [01/Mar/2025 22:17:07] "POST /upload HTTP/1.1" 200 -
+2025-03-01 22:17:07,824 [INFO] 127.0.0.1 - - [01/Mar/2025 22:17:07] "GET /audio/output_3.wav HTTP/1.1" 200 -
+2025-03-01 22:17:07,840 [INFO] 127.0.0.1 - - [01/Mar/2025 22:17:07] "[35m[1mGET /audio/output_3.wav HTTP/1.1[0m" 206 -
+2025-03-01 22:17:07,870 [INFO] 127.0.0.1 - - [01/Mar/2025 22:17:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 22:17:23,578 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。どんなことをお手伝いできるか教えてください。'}, {'role': 'user', 'content': 'こんにちは はじめましてトリミングテストします'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:17:23,579 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:17:23,580 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:17:23,594 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103fc7610>
+2025-03-01 22:17:23,595 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x1041395b0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:17:23,617 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103f7ac40>
+2025-03-01 22:17:23,618 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:17:23,618 [DEBUG] send_request_headers.complete
+2025-03-01 22:17:23,619 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:17:23,619 [DEBUG] send_request_body.complete
+2025-03-01 22:17:23,619 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:17:24,897 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:17:25 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'1028'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199922'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'23ms'), (b'x-request-id', b'req_62c09e2eaa21e2ed3b46ff85aa1d94b1'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=zW2SX.ObceEN6n8UjCCCQ4J1L35xTUVIJcEwUznCCuw-1740835045-1.0.1.1-AduF.DTtavuBOEZmTRVQpAl.rTT8PzQMLDiRK1nE6h5iBoqASVQo9NpJzTz.mI4mO1K5RdI1qnTzwMraXfa8RaLM2A0OaBRsMtDxEM6n2fs; path=/; expires=Sat, 01-Mar-25 13:47:25 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=FXA9GruoGXS1UBt6iPjwio9hG6DycOVZ9QdhN6girTo-1740835045190-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9198ef30a883d5c4-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:17:24,899 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:17:24,899 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:17:24,955 [DEBUG] receive_response_body.complete
+2025-03-01 22:17:24,955 [DEBUG] response_closed.started
+2025-03-01 22:17:24,955 [DEBUG] response_closed.complete
+2025-03-01 22:17:24,956 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:17:25 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '1028'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199922'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '23ms'), ('x-request-id', 'req_62c09e2eaa21e2ed3b46ff85aa1d94b1'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=zW2SX.ObceEN6n8UjCCCQ4J1L35xTUVIJcEwUznCCuw-1740835045-1.0.1.1-AduF.DTtavuBOEZmTRVQpAl.rTT8PzQMLDiRK1nE6h5iBoqASVQo9NpJzTz.mI4mO1K5RdI1qnTzwMraXfa8RaLM2A0OaBRsMtDxEM6n2fs; path=/; expires=Sat, 01-Mar-25 13:47:25 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=FXA9GruoGXS1UBt6iPjwio9hG6DycOVZ9QdhN6girTo-1740835045190-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9198ef30a883d5c4-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:17:24,956 [DEBUG] request_id: req_62c09e2eaa21e2ed3b46ff85aa1d94b1
+2025-03-01 22:17:24,961 [INFO] AIの応答: こんにちは！トリミングテストの件、了解しました。何か具体的に試したいことがあればお知らせください。
+2025-03-01 22:17:24,962 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 22:17:25,006 [INFO] 127.0.0.1 - - [01/Mar/2025 22:17:25] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -
+2025-03-01 22:32:04,851 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:32:04,919 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 22:32:04,919 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 22:32:04,919 [INFO]  * Restarting with stat
+2025-03-01 22:32:09,544 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:32:09,585 [WARNING]  * Debugger is active!
+2025-03-01 22:32:09,607 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 22:32:33,575 [INFO] index.html を返します。
+2025-03-01 22:32:33,610 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:33] "[36mGET / HTTP/1.1[0m" 304 -
+2025-03-01 22:32:34,230 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:32:34,382 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHw9w9 HTTP/1.1" 200 -
+2025-03-01 22:32:34,446 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:32:34,460 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 22:32:34,461 [INFO] speaker_ids を取得しました。
+2025-03-01 22:32:34,463 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 22:32:34,544 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "POST /socket.io/?EIO=4&transport=polling&t=PLHw9zD&sid=Lej-nXoBElTf4BO_AAAA HTTP/1.1" 200 -
+2025-03-01 22:32:34,581 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHw9zF&sid=Lej-nXoBElTf4BO_AAAA HTTP/1.1" 200 -
+2025-03-01 22:32:34,604 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 22:32:34,612 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHw9-X&sid=Lej-nXoBElTf4BO_AAAA HTTP/1.1" 200 -
+2025-03-01 22:32:46,077 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:46] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:32:55,443 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:32:55,444 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:32:55,444 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:32:55,497 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f24fb60>
+2025-03-01 22:32:55,497 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x10f17acc0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:32:55,520 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f0bb610>
+2025-03-01 22:32:55,520 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:32:55,521 [DEBUG] send_request_headers.complete
+2025-03-01 22:32:55,521 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:32:55,521 [DEBUG] send_request_body.complete
+2025-03-01 22:32:55,521 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:32:57,338 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:32:57 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'636'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199966'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_3b31dc2a479dfbf3ab722e66bf7492b9'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=qMYYr0Nh.ByLTCy6zz0jke2jQY4zBa0zES0mbgRRRSA-1740835977-1.0.1.1-rYQ.sA2sCE3YWDVWGBl43Ud2rFStDoGIsi1dXJ2SjtqpM1il15fvOdfyj8D5YnqDseJKGa_fM6V5_kUYqJBQsoZBMtzwYv.lypCbElNBvuI; path=/; expires=Sat, 01-Mar-25 14:02:57 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=trwFIsu8Q2hK7VKCLPGaLqgAboBBw8M_WkOji5.kS18-1740835977537-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'919905f05f96d789-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:32:57,340 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:32:57,340 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:32:57,341 [DEBUG] receive_response_body.complete
+2025-03-01 22:32:57,342 [DEBUG] response_closed.started
+2025-03-01 22:32:57,342 [DEBUG] response_closed.complete
+2025-03-01 22:32:57,342 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:32:57 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '636'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199966'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_3b31dc2a479dfbf3ab722e66bf7492b9'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=qMYYr0Nh.ByLTCy6zz0jke2jQY4zBa0zES0mbgRRRSA-1740835977-1.0.1.1-rYQ.sA2sCE3YWDVWGBl43Ud2rFStDoGIsi1dXJ2SjtqpM1il15fvOdfyj8D5YnqDseJKGa_fM6V5_kUYqJBQsoZBMtzwYv.lypCbElNBvuI; path=/; expires=Sat, 01-Mar-25 14:02:57 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=trwFIsu8Q2hK7VKCLPGaLqgAboBBw8M_WkOji5.kS18-1740835977537-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '919905f05f96d789-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:32:57,343 [DEBUG] request_id: req_3b31dc2a479dfbf3ab722e66bf7492b9
+2025-03-01 22:32:57,373 [INFO] AIの応答: こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問や相談があれば、お気軽にどうぞ！
+2025-03-01 22:32:57,373 [INFO] AIの応答を取得します。音声合成スピーカーID: 2
+2025-03-01 22:32:57,392 [INFO] 127.0.0.1 - - [01/Mar/2025 22:32:57] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -
+2025-03-01 22:42:22,376 [INFO]  * Detected change in '/Users/fujinohidenori/dev/project/voicechatapp12.py', reloading
+2025-03-01 22:42:27,393 [DEBUG] close.started
+2025-03-01 22:42:27,395 [DEBUG] close.complete
+2025-03-01 22:42:27,814 [INFO]  * Restarting with stat
+2025-03-01 22:42:33,852 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:42:33,893 [WARNING]  * Debugger is active!
+2025-03-01 22:42:33,911 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 22:42:33,960 [INFO] 127.0.0.1 - - [01/Mar/2025 22:42:33] "GET /socket.io/?EIO=4&transport=polling&t=PLHyR2z HTTP/1.1" 200 -
+2025-03-01 22:42:34,013 [INFO] 127.0.0.1 - - [01/Mar/2025 22:42:34] "POST /socket.io/?EIO=4&transport=polling&t=PLHySJj&sid=O7ws9fEnk9-4qBurAAAA HTTP/1.1" 200 -
+2025-03-01 22:42:34,037 [INFO] 127.0.0.1 - - [01/Mar/2025 22:42:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHySJm&sid=O7ws9fEnk9-4qBurAAAA HTTP/1.1" 200 -
+2025-03-01 22:42:34,059 [INFO] 127.0.0.1 - - [01/Mar/2025 22:42:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHySKu&sid=O7ws9fEnk9-4qBurAAAA HTTP/1.1" 200 -
+2025-03-01 22:42:34,072 [INFO] 127.0.0.1 - - [01/Mar/2025 22:42:34] "GET /socket.io/?EIO=4&transport=polling&t=PLHySLF&sid=O7ws9fEnk9-4qBurAAAA HTTP/1.1" 200 -
+2025-03-01 22:42:54,334 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:42:54,387 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 22:42:54,388 [INFO] [33mPress CTRL+C to quit[0m
+2025-03-01 22:42:54,388 [INFO]  * Restarting with stat
+2025-03-01 22:43:01,690 [INFO] #####アプリケーションを起動します。#####
+2025-03-01 22:43:01,734 [WARNING]  * Debugger is active!
+2025-03-01 22:43:01,754 [INFO]  * Debugger PIN: 286-038-734
+2025-03-01 22:43:01,819 [INFO] index.html を返します。
+2025-03-01 22:43:01,833 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:01] "GET / HTTP/1.1" 200 -
+2025-03-01 22:43:02,019 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:43:02,142 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /socket.io/?EIO=4&transport=polling&t=PLHyZAf HTTP/1.1" 200 -
+2025-03-01 22:43:02,229 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:43:02,246 [DEBUG] http://localhost:50021 "GET /speakers HTTP/1.1" 200 10101
+2025-03-01 22:43:02,248 [INFO] speaker_ids を取得しました。
+2025-03-01 22:43:02,250 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /speaker_ids HTTP/1.1" 200 -
+2025-03-01 22:43:02,312 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "POST /socket.io/?EIO=4&transport=polling&t=PLHyZED&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:43:02,327 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /socket.io/?EIO=4&transport=polling&t=PLHyZEF&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:43:02,390 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /socket.io/?EIO=4&transport=polling&t=PLHyZF7&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:43:02,401 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /socket.io/?EIO=4&transport=polling&t=PLHyZFw&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:43:02,412 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "GET /socket.io/?EIO=4&transport=polling&t=PLHyZG5&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:43:02,845 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 22:43:04,940 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:04] "[36mGET /static/voicechatapp.css HTTP/1.1[0m" 304 -
+2025-03-01 22:43:11,676 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:43:11,677 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:43:11,678 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:43:11,697 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11265bb60>
+2025-03-01 22:43:11,697 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x11259ecc0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:43:11,723 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1124df610>
+2025-03-01 22:43:11,724 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:43:11,725 [DEBUG] send_request_headers.complete
+2025-03-01 22:43:11,725 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:43:11,726 [DEBUG] send_request_body.complete
+2025-03-01 22:43:11,726 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:43:12,787 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:43:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'760'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199966'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'9ms'), (b'x-request-id', b'req_037fdf7bcf7954c5312035b2be5a9b83'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Xppda7X_RGdflqXNJ3JhNOpImWT.94.YxOM1O7JAd9M-1740836592-1.0.1.1-mtrFQ3Aa9D925_B8fDEmy9fdEsgpSc0u4SVbg6_L.vB0lGPYCvdz2QCIoJmqVxS83274Eu4o0UyLDrQyanVBZ7TyUmmkjvWuZT_zf_5xDIY; path=/; expires=Sat, 01-Mar-25 14:13:12 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=RzMHYHtVMr7rY.4BugBK0GzuHwHiFp2LaxaC6QZmERg-1740836592964-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'919914fbbc41e0a8-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:43:12,788 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:43:12,789 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:43:12,789 [DEBUG] receive_response_body.complete
+2025-03-01 22:43:12,790 [DEBUG] response_closed.started
+2025-03-01 22:43:12,790 [DEBUG] response_closed.complete
+2025-03-01 22:43:12,790 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:43:12 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '760'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199966'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '9ms'), ('x-request-id', 'req_037fdf7bcf7954c5312035b2be5a9b83'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=Xppda7X_RGdflqXNJ3JhNOpImWT.94.YxOM1O7JAd9M-1740836592-1.0.1.1-mtrFQ3Aa9D925_B8fDEmy9fdEsgpSc0u4SVbg6_L.vB0lGPYCvdz2QCIoJmqVxS83274Eu4o0UyLDrQyanVBZ7TyUmmkjvWuZT_zf_5xDIY; path=/; expires=Sat, 01-Mar-25 14:13:12 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=RzMHYHtVMr7rY.4BugBK0GzuHwHiFp2LaxaC6QZmERg-1740836592964-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '919914fbbc41e0a8-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:43:12,791 [DEBUG] request_id: req_037fdf7bcf7954c5312035b2be5a9b83
+2025-03-01 22:43:12,828 [INFO] AIの応答: こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問やお話ししたいことがありますか？
+2025-03-01 22:43:12,844 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:43:12,890 [DEBUG] http://localhost:50021 "POST /audio_query?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6%E3%80%82%E7%A7%81%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%93%E3%81%93%E3%81%AB%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E4%BD%95%E3%81%8B%E8%B3%AA%E5%95%8F%E3%82%84%E3%81%8A%E8%A9%B1%E3%81%97%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F&speaker=2 HTTP/1.1" 200 10089
+2025-03-01 22:43:12,898 [DEBUG] Starting new HTTP connection (1): localhost:50021
+2025-03-01 22:43:19,374 [DEBUG] http://localhost:50021 "POST /synthesis?speaker=2 HTTP/1.1" 200 408108
+2025-03-01 22:43:19,384 [INFO] 音声が output_3.wav に保存されました。
+2025-03-01 22:43:19,389 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:19] "POST /upload HTTP/1.1" 200 -
+2025-03-01 22:43:19,432 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:19] "[35m[1mGET /audio/output_3.wav HTTP/1.1[0m" 206 -
+2025-03-01 22:43:19,562 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 22:43:45,293 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問やお話ししたいことがありますか？'}, {'role': 'user', 'content': '今 ストリーミングのテストを行ってます'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:43:45,294 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:43:45,295 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:43:45,310 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1126b4cd0>
+2025-03-01 22:43:45,310 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x112645250> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:43:45,375 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x112589ba0>
+2025-03-01 22:43:45,375 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:43:45,376 [DEBUG] send_request_headers.complete
+2025-03-01 22:43:45,376 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:43:45,377 [DEBUG] send_request_body.complete
+2025-03-01 22:43:45,377 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:43:46,574 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:43:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'914'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199910'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'27ms'), (b'x-request-id', b'req_9daac3089fe93437bf5f8ed89694b7f7'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=MgQc_Uzv76mg5ICu1nBb1XryEusT_C79OMPoqOvGxQg-1740836626-1.0.1.1-I2YyjO3Jl2xpsjeDgL9jqllM84KJuyI6RgL56o.6G1EdHDpZP3W5bJfhnS3y4o6yONYeupdmXOZsrqXezrkOGHIPjvj39u7v0xTTg0PF2pA; path=/; expires=Sat, 01-Mar-25 14:13:46 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Sc.Pfe5JJ4AbSUe2uO61C.yam4fgtsLgZ8I11FTRPSY-1740836626731-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'919915ce0e38af54-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:43:46,576 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:43:46,578 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:43:46,588 [DEBUG] receive_response_body.complete
+2025-03-01 22:43:46,588 [DEBUG] response_closed.started
+2025-03-01 22:43:46,588 [DEBUG] response_closed.complete
+2025-03-01 22:43:46,589 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:43:46 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '914'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199910'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '27ms'), ('x-request-id', 'req_9daac3089fe93437bf5f8ed89694b7f7'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=MgQc_Uzv76mg5ICu1nBb1XryEusT_C79OMPoqOvGxQg-1740836626-1.0.1.1-I2YyjO3Jl2xpsjeDgL9jqllM84KJuyI6RgL56o.6G1EdHDpZP3W5bJfhnS3y4o6yONYeupdmXOZsrqXezrkOGHIPjvj39u7v0xTTg0PF2pA; path=/; expires=Sat, 01-Mar-25 14:13:46 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=Sc.Pfe5JJ4AbSUe2uO61C.yam4fgtsLgZ8I11FTRPSY-1740836626731-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '919915ce0e38af54-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:43:46,589 [DEBUG] request_id: req_9daac3089fe93437bf5f8ed89694b7f7
+2025-03-01 22:43:46,594 [INFO] AIの応答: ストリーミングのテストを行っているんですね！うまくいっていると良いですね。何か特定のサポートが必要でしたら教えてください。設定やトラブルシューティングについてお話しすることもできますよ。
+2025-03-01 22:43:46,594 [INFO] AIの応答を取得します。音声合成スピーカーID: 3
+2025-03-01 22:43:46,618 [INFO] 127.0.0.1 - - [01/Mar/2025 22:43:46] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -
+2025-03-01 22:53:12,660 [DEBUG] close.started
+2025-03-01 22:53:12,661 [DEBUG] close.complete
+2025-03-01 22:53:12,661 [DEBUG] close.started
+2025-03-01 22:53:12,661 [DEBUG] close.complete
+2025-03-01 22:53:14,342 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問やお話ししたいことがありますか？'}, {'role': 'user', 'content': '今 ストリーミングのテストを行ってます'}, {'role': 'assistant', 'content': 'ストリーミングのテストを行っているんですね！うまくいっていると良いですね。何か特定のサポートが必要でしたら教えてください。設定やトラブルシューティングについてお話しすることもできますよ。'}, {'role': 'user', 'content': 'こんにちは初めまして'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:53:14,347 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:53:14,350 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:53:14,394 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x112589ba0>
+2025-03-01 22:53:14,396 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x1148596d0> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:53:14,419 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1148fee70>
+2025-03-01 22:53:14,421 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:53:14,423 [DEBUG] send_request_headers.complete
+2025-03-01 22:53:14,423 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:53:14,424 [DEBUG] send_request_body.complete
+2025-03-01 22:53:14,424 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:53:15,310 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:53:15 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'678'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199831'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'50ms'), (b'x-request-id', b'req_46427e564ea0d9c1b22d7d211dc4b04b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=P69S4iB.P7Mx8x8uXfK0rt8lINFVTFulnkTq0gilXHc-1740837195-1.0.1.1-DS_c_8IUBpGPBUTGL58_.dvpQNEUFmSBcbGkkWzw1seT0ohnTBXYy4ZVNHCo.Q033QlClR5rEjwrLr2l8GNu.9kX.GTPXLgpumSAOx6C3yM; path=/; expires=Sat, 01-Mar-25 14:23:15 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=fZRSJuhreY0b7UX2BuRsuwMwJVyr69bv63y3K3R0xe0-1740837195534-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'919923b2a997d793-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:53:15,316 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:53:15,317 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:53:15,318 [DEBUG] receive_response_body.complete
+2025-03-01 22:53:15,319 [DEBUG] response_closed.started
+2025-03-01 22:53:15,319 [DEBUG] response_closed.complete
+2025-03-01 22:53:15,320 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:53:15 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '678'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199831'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '50ms'), ('x-request-id', 'req_46427e564ea0d9c1b22d7d211dc4b04b'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=P69S4iB.P7Mx8x8uXfK0rt8lINFVTFulnkTq0gilXHc-1740837195-1.0.1.1-DS_c_8IUBpGPBUTGL58_.dvpQNEUFmSBcbGkkWzw1seT0ohnTBXYy4ZVNHCo.Q033QlClR5rEjwrLr2l8GNu.9kX.GTPXLgpumSAOx6C3yM; path=/; expires=Sat, 01-Mar-25 14:23:15 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=fZRSJuhreY0b7UX2BuRsuwMwJVyr69bv63y3K3R0xe0-1740837195534-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '919923b2a997d793-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:53:15,321 [DEBUG] request_id: req_46427e564ea0d9c1b22d7d211dc4b04b
+2025-03-01 22:53:15,326 [INFO] AIの応答: こんにちは！初めまして。私はあなたの質問に答えたり、情報を提供したりするためにここにいます。何かお手伝いできることがあれば教えてください！
+2025-03-01 22:53:15,327 [INFO] AIの応答を取得します。音声合成スピーカーID: 3
+2025-03-01 22:53:48,115 [INFO] 127.0.0.1 - - [01/Mar/2025 22:53:48] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -
+2025-03-01 22:54:22,467 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問やお話ししたいことがありますか？'}, {'role': 'user', 'content': '今 ストリーミングのテストを行ってます'}, {'role': 'assistant', 'content': 'ストリーミングのテストを行っているんですね！うまくいっていると良いですね。何か特定のサポートが必要でしたら教えてください。設定やトラブルシューティングについてお話しすることもできますよ。'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたの質問に答えたり、情報を提供したりするためにここにいます。何かお手伝いできることがあれば教えてください！'}, {'role': 'user', 'content': 'もう1度テスト'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:54:22,468 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:54:22,469 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:54:22,484 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1149a0380>
+2025-03-01 22:54:22,484 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x11493e690> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:54:22,512 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1149a1150>
+2025-03-01 22:54:22,512 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:54:22,515 [DEBUG] send_request_headers.complete
+2025-03-01 22:54:22,515 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:54:22,516 [DEBUG] send_request_body.complete
+2025-03-01 22:54:22,518 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:54:24,725 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:54:24 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'1871'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199771'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'68ms'), (b'x-request-id', b'req_0ed499258e5b4f74753d00c8791da73b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Vr5p6T__2edrRyJrOqak_z1Z.1fiaGu6WAYBridmxZ4-1740837264-1.0.1.1-GkFgoqeBmPX9T51usAth7JiZD1Y6BWG4q1QfQqzLKI5DaQi2d0qI5smoTuDndkqnB4UKQ_ScdyJ5tYFBMQXPGbl0aagJY55TIjWJOcvmlSM; path=/; expires=Sat, 01-Mar-25 14:24:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=RvoJwjQw8Iz7h_3dnPFZNd3A8dgE0IQjlxRnWG5yDAA-1740837264836-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9199255c385f688d-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:54:24,727 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:54:24,727 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:54:24,728 [DEBUG] receive_response_body.complete
+2025-03-01 22:54:24,728 [DEBUG] response_closed.started
+2025-03-01 22:54:24,728 [DEBUG] response_closed.complete
+2025-03-01 22:54:24,728 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:54:24 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '1871'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199771'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '68ms'), ('x-request-id', 'req_0ed499258e5b4f74753d00c8791da73b'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=Vr5p6T__2edrRyJrOqak_z1Z.1fiaGu6WAYBridmxZ4-1740837264-1.0.1.1-GkFgoqeBmPX9T51usAth7JiZD1Y6BWG4q1QfQqzLKI5DaQi2d0qI5smoTuDndkqnB4UKQ_ScdyJ5tYFBMQXPGbl0aagJY55TIjWJOcvmlSM; path=/; expires=Sat, 01-Mar-25 14:24:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=RvoJwjQw8Iz7h_3dnPFZNd3A8dgE0IQjlxRnWG5yDAA-1740837264836-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9199255c385f688d-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:54:24,729 [DEBUG] request_id: req_0ed499258e5b4f74753d00c8791da73b
+2025-03-01 22:54:24,732 [INFO] AIの応答: もちろんです！テストに関して何か特定のことを確認したい、または助けが必要ですか？ストリーミングのテストに関することでも、別のテストでも構いませんので、気軽にお知らせください。
+2025-03-01 22:54:24,733 [INFO] AIの応答を取得します。音声合成スピーカーID: 3
+2025-03-01 22:59:37,709 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_XXv HTTP/1.1" 200 -
+2025-03-01 22:59:37,711 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_kEQ HTTP/1.1" 200 -
+2025-03-01 22:59:37,722 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_du9 HTTP/1.1" 200 -
+2025-03-01 22:59:37,723 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_RwW HTTP/1.1" 200 -
+2025-03-01 22:59:37,725 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_qai HTTP/1.1" 200 -
+2025-03-01 22:59:37,772 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLH_whX HTTP/1.1" 200 -
+2025-03-01 22:59:37,801 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLI011Y HTTP/1.1" 200 -
+2025-03-01 22:59:37,809 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLI07No HTTP/1.1" 200 -
+2025-03-01 22:59:37,819 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLI0Dk2 HTTP/1.1" 200 -
+2025-03-01 22:59:37,825 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLI0K4M HTTP/1.1" 200 -
+2025-03-01 22:59:37,870 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=websocket&sid=6GBM0hKZZ_FDsDs4AAAA HTTP/1.1" 200 -
+2025-03-01 22:59:37,879 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "GET /socket.io/?EIO=4&transport=polling&t=PLI0MHe&sid=7sMxCy6WEQTrWzlYAAAL HTTP/1.1" 200 -
+2025-03-01 22:59:37,892 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "POST /socket.io/?EIO=4&transport=polling&t=PLI0MHc&sid=7sMxCy6WEQTrWzlYAAAL HTTP/1.1" 200 -
+2025-03-01 22:59:37,946 [INFO] 127.0.0.1 - - [01/Mar/2025 22:59:37] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -
+2025-03-01 22:59:51,841 [DEBUG] Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたのお手伝いをするためにここにいます。何か質問やお話ししたいことがありますか？'}, {'role': 'user', 'content': '今 ストリーミングのテストを行ってます'}, {'role': 'assistant', 'content': 'ストリーミングのテストを行っているんですね！うまくいっていると良いですね。何か特定のサポートが必要でしたら教えてください。設定やトラブルシューティングについてお話しすることもできますよ。'}, {'role': 'user', 'content': 'こんにちは初めまして'}, {'role': 'assistant', 'content': 'こんにちは！初めまして。私はあなたの質問に答えたり、情報を提供したりするためにここにいます。何かお手伝いできることがあれば教えてください！'}, {'role': 'user', 'content': 'もう1度テスト'}, {'role': 'assistant', 'content': 'もちろんです！テストに関して何か特定のことを確認したい、または助けが必要ですか？ストリーミングのテストに関することでも、別のテストでも構いませんので、気軽にお知らせください。'}, {'role': 'user', 'content': 'こんにちは はじめまし'}], 'model': 'gpt-4o-mini'}}
+2025-03-01 22:59:51,846 [DEBUG] Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-03-01 22:59:51,849 [DEBUG] connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-01 22:59:51,898 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1149c4150>
+2025-03-01 22:59:51,899 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x11493e450> server_hostname='api.openai.com' timeout=5.0
+2025-03-01 22:59:52,050 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1149c4250>
+2025-03-01 22:59:52,051 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-03-01 22:59:52,052 [DEBUG] send_request_headers.complete
+2025-03-01 22:59:52,053 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-03-01 22:59:52,053 [DEBUG] send_request_body.complete
+2025-03-01 22:59:52,053 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-03-01 22:59:52,937 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 01 Mar 2025 13:59:53 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-fc72b3cnlopml9hzdibmvpsd'), (b'openai-processing-ms', b'609'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199697'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'90ms'), (b'x-request-id', b'req_54dd277cdca153282debf654854e5e9a'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=WmhuN8aPWo.xV9XkUZ1Jn5U7eB30PcH9Ls5fJuiTBw0-1740837593-1.0.1.1-gAFOi5554WPOXnipLDTF4sa7CuxhWDgElmOBf6f2clK2fHwA3PM5RhQ_b3UBAMm.N4TKE5A8swNjvne4xcAWO2RJu0Je2JXOJGnxbFEwOk8; path=/; expires=Sat, 01-Mar-25 14:29:53 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=84_sz2k81Bhcdkx_jCFSxu9D7my8UEMCY2HhWxbXpXE-1740837593161-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91992d67d95de381-NRT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-03-01 22:59:52,941 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 22:59:52,942 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-03-01 22:59:52,943 [DEBUG] receive_response_body.complete
+2025-03-01 22:59:52,945 [DEBUG] response_closed.started
+2025-03-01 22:59:52,945 [DEBUG] response_closed.complete
+2025-03-01 22:59:52,946 [DEBUG] HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 01 Mar 2025 13:59:53 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-fc72b3cnlopml9hzdibmvpsd'), ('openai-processing-ms', '609'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199697'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '90ms'), ('x-request-id', 'req_54dd277cdca153282debf654854e5e9a'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=WmhuN8aPWo.xV9XkUZ1Jn5U7eB30PcH9Ls5fJuiTBw0-1740837593-1.0.1.1-gAFOi5554WPOXnipLDTF4sa7CuxhWDgElmOBf6f2clK2fHwA3PM5RhQ_b3UBAMm.N4TKE5A8swNjvne4xcAWO2RJu0Je2JXOJGnxbFEwOk8; path=/; expires=Sat, 01-Mar-25 14:29:53 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=84_sz2k81Bhcdkx_jCFSxu9D7my8UEMCY2HhWxbXpXE-1740837593161-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '91992d67d95de381-NRT'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-03-01 22:59:52,946 [DEBUG] request_id: req_54dd277cdca153282debf654854e5e9a
+2025-03-01 22:59:52,950 [INFO] AIの応答: こんにちは！初めまして。どのようなお話をしましょうか？お手伝いできることがあれば教えてください。
+2025-03-01 22:59:52,951 [INFO] AIの応答を取得します。音声合成スピーカーID: 3
+2025-03-01 23:00:07,928 [INFO] 127.0.0.1 - - [01/Mar/2025 23:00:07] "[35m[1mPOST /streaming HTTP/1.1[0m" 500 -

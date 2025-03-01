@@ -5,3 +5,4 @@ openai
 python-dotenv
 flask-socketio
 requests
+re
