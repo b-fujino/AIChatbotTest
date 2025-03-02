@@ -16,6 +16,10 @@ from io import BytesIO
 #　環境変数の読み込み
 load_dotenv()
 
+# VoiceVox APIのエンドポイント
+VOICEVOX_API_URL = "http://localhost:50021"
+
+
 # Flaskアプリケーションの作成
 app = Flask(__name__, static_folder="static")  
 
@@ -51,7 +55,7 @@ def index():
 # VoiceVoxのSpeakerIDリストを取得するエンドポイント
 @app.route("/speaker_ids")
 def get_speaker_ids():
-    url = "http://localhost:50021/speakers"  # VOICEVOX APIのエンドポイント
+    url = f"{VOICEVOX_API_URL}/speakers"  # VOICEVOX APIのエンドポイント
     try:
         response = requests.get(url)
     except Exception as e:
@@ -78,8 +82,18 @@ def get_speaker_ids():
 def speaker_test():
     speaker = request.json["speaker"]
     text = "こんにちは．初めまして．何かお手伝いできることはありますか？"
-    filename = synthesize_voice(text, speaker)
-    return jsonify({"audio": filename})
+    synthesize_response = synthesize_voice(ai_response, speaker)
+
+    # 合成した音声をmp3化
+    if synthesize_response is None: return jsonify({"error": "Failed to synthesize voice"}), 400
+    audio = AudioSegment.from_file(BytesIO(synthesize_response.content), format="wav")
+    mp3_data  = BytesIO()
+    audio.export(mp3_data , format="mp3")
+    mp3_data .seek(0)  
+
+    # mp3データをWebSocketを通じてクライアントに通知
+    socketio.emit('play_audio', {'audio': mp3_data.getvalue()})
+    return jsonify({"info": "Speaker Test Process Succeeded"}), 200
 
 
 # /upload へのリクエストを処理する
@@ -132,13 +146,7 @@ def upload_audio():
 
     # mp3データをWebSocketを通じてクライアントに通知
     socketio.emit('play_audio', {'audio': mp3_data.getvalue()})
-    return jsonify({"info": "Process Succeeded"}), 200
-
-
-# 音声ファイルを提供するエンドポイント
-@app.route("/audio/<filename>")
-def get_audio(filename):
-    return send_file(os.path.join("output",filename))
+    return jsonify({"info": "Uploard Process Succeeded"}), 200
 
 
 
@@ -164,28 +172,47 @@ def streaming():
 
     # 音声認識
     text = recognize_speech(audio_path)
-    # 音声認識の結果を最初に返す
-    socketio.emit("SpeechRecognition",{"text": text})
+    ## 音声認識の結果をWebSocketを通じてクライアントに通知
+    if text:
+        socketio.emit("SpeechRecognition",{"text": text})
+    else:
+        return jsonify({"error": "Failed to recognize speech"}), 400    
     
-    # 続けてストリームで音声合成
-    ## まずは openai で応答を取得
+    # AIの応答を取得
     ai_response = get_ai_response(text)
-    socketio.emit("AIResponse", {"ai_response": ai_response})
+    ## WebSocketを通じてクライアントに通知
+    if ai_response:
+        socketio.emit('ai_response', {'ai_response': ai_response}) #, 'audio': filename})
+    else:
+        return jsonify({"error": "Failed to get AI response"}), 400
+    
 
     ## 音声合成
     speaker = request.form["speaker"]
-    logging.info(f"AIの応答を取得します。音声合成スピーカーID: {speaker}")    
-    
 
-    def generate():
-        yield from synthesize_streaming(ai_response, speaker)
+    # テキストを句単位に区切る
+    logging.debug("テキストを句単位に区切ります。")
+    text = preprocess_text(ai_response)
+    sentences = text.split("\n")
 
-    socketio.emit("Streaming", {
-        "Response": Response(
-            stream_with_context(generate()),
-            content_type="application/octet-stream"
-        )
-    })
+    # 句ごとに音声合成
+    for sentence in sentences:
+        if sentence == "": continue
+        
+        ## 音声合成
+        synthesize_response=synthesize_voice(sentence, speaker)
+        if synthesize_response is None: return jsonify({"error": "Failed to synthesize voice"}), 400
+
+        ## 合成した音声をmp3化
+        audio = AudioSegment.from_file(BytesIO(synthesize_response.content), format="wav")
+        mp3_data  = BytesIO()
+        audio.export(mp3_data , format="mp3")
+        mp3_data .seek(0)
+
+        ## mp3データをWebSocketを通じてクライアントに通知 ここでうまくキューに入れて連続再生させたい
+        socketio.emit('play_audio', {'audio': mp3_data.getvalue()})
+        time.sleep(0.2)
+
     
     return jsonify({"info": "Process Succeeded"}), 200
 
@@ -222,7 +249,7 @@ def get_ai_response(text):
 def synthesize_voice(text, speaker):
     # 1. テキストから音声合成のためのクエリを作成
     query_payload = {'text': text, 'speaker': speaker}
-    query_response = requests.post(f'http://localhost:50021/audio_query', params=query_payload)
+    query_response = requests.post(f'{VOICEVOX_API_URL}/audio_query', params=query_payload)
 
     if query_response.status_code != 200:
         logging.error(f"Error in audio_query: {query_response.text}")
@@ -233,17 +260,10 @@ def synthesize_voice(text, speaker):
 
     # 2. クエリを元に音声データを生成
     synthesis_payload = {'speaker': speaker}
-    synthesis_response = requests.post(f'http://localhost:50021/synthesis', params=synthesis_payload, json=query)
+    synthesis_response = requests.post(f'{VOICEVOX_API_URL}/synthesis', params=synthesis_payload, json=query)
 
     if synthesis_response.status_code == 200:
-        # # 音声ファイルとして保存
-        # filename = f"output_{len(messages)}.wav" #合成音声を全部残すならこっちをON
-        # #filename = "output.wav" #合成音声を全部残さないならこっちをON
-        # file_path = "output/" + filename
-        # with open(file_path, 'wb') as f:
-        #     f.write(synthesis_response.content)
-        # logging.info(f"音声が {filename} に保存されました。")
-        # return filename
+        logging.info("音声データを生成しました。")
         return synthesis_response
     else:
         logging.error(f"Error in synthesis: {synthesis_response.text}")
@@ -258,44 +278,8 @@ def preprocess_text(text):
     text = re.sub(r"[！!]", "！\n", text)
     return text
 
-# テキストを句ごとに音声合成してストリーミング
-def synthesize_streaming(text, speaker):
-    # テキストを句単位に区切る
-    logging.debug("テキストを句単位に区切ります。")
-    text = preprocess_text(text)
-    sentences = text.split("\n")
 
-    # 句ごとに音声合成
-    for sentence in sentences:
-        if sentence == "": continue
-        
-        ## クエリ
-        query_response = requests.post(
-            f'http://localhost:50021/audio_query', 
-            params={'text': sentence, 'speaker': speaker}
-        )
-        if query_response.status_code != 200:
-            logging.error(f"Error in audio_query: {query_response.text}")
-            return
-        
-        ## 音声合成
-        logging.debug("音声データを生成します。")
-        with requests.post(
-            f'http://localhost:50021/synthesis', 
-            params={'speaker': speaker}, 
-            json=query_response.json(), 
-            stream=True
-        ) as synthesis_response:
-            if synthesis_response.status_code != 200:
-                logging.error(f"Error in synthesis: {synthesis_response.text}")
-                return
-            yield "---start---\n".encode("utf-8")
-            for chunk in synthesis_response.iter_content(chunk_size=1024):
-                logging.info("チャンク生成")
-                yield chunk
-            yield "---end---\n".encode("utf-8")
 
-            time.sleep(0.2)
         
     
 
