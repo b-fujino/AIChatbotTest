@@ -140,7 +140,7 @@
 
             // AIの応答ストリームを受信したときの処理
             socket.on("ai_stream", (data) => {
-                if(data.ai_stream){
+                if(data.sentens){
                     if (data.sentens.includes("---Start---")) { 
                         // 最初はdivを作成
                         chatlog.innerHTML += `<div class="assistant"></div>`;
@@ -198,7 +198,7 @@
 
                 // 再生が終了したら次の音声ファイルを再生
                 audio.onended = () => {
-                    playAudioWithSentecns();
+                    playAudioWithSentens();
                 };
             }
 

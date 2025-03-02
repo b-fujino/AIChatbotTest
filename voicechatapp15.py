@@ -182,7 +182,7 @@ def streaming():
 
     # AIの応答を句単位でストリームするとともに．句単位で音声合成もしていく
     speaker = request.form["speaker"]
-    socketio.emit('ai_stream', {'ai_stream': "---Start---"}) # 開始を通知
+    socketio.emit('ai_stream', {'sentens': "---Start---"}) # 開始を通知
     for sentence in generate_ai_response(text):
         ## WebSocketを通じてクライアントに通知
         if sentence:
@@ -196,16 +196,23 @@ def streaming():
             mp3_data .seek(0)
             ## mp3データをWebSocketを通じてクライアントに通知 ここでうまくキューに入れて連続再生させたい
             socketio.emit('ai_stream', {'audio': mp3_data.getvalue(), 'sentens': sentence})
-            #socketio.emit('ai_stream', {'ai_stream': sentence})
-            ## 0.5秒の無音を入れる．これで句の切り分けが聞きやすくなると思う．
-            silent_audio = AudioSegment.silent(duration=500)
-            mp3_data  = BytesIO()
-            silent_audio.export(mp3_data , format="mp3")
-            mp3_data .seek(0)
-            socketio.emit('ai_stream', {'audio': mp3_data.getvalue(), 'sentens': "---silent---"}) 
+            # sentensの区切り文字が読点だったら，0.2秒の無音を入れる
+            if sentence[-1] in ",，、":
+                silent_audio = AudioSegment.silent(duration=10)
+                mp3_data  = BytesIO()
+                silent_audio.export(mp3_data , format="mp3")
+                mp3_data .seek(0)
+            # sentensの区切り文字が読点でなかったら，0.5秒の無音を入れる
+            else:
+                silent_audio = AudioSegment.silent(duration=500)
+                mp3_data  = BytesIO()
+                silent_audio.export(mp3_data , format="mp3")
+                mp3_data .seek(0)
+            # 無音を送信
+            socketio.emit('ai_stream', {'audio': mp3_data.getvalue(), 'sentens': "---silent---"})
         else:
             return jsonify({"error": "Failed to get AI response"}), 400
-    socketio.emit('ai_stream', {'ai_stream': "---End---"}) # 終了を通知
+    socketio.emit('ai_stream', {'sentens': "---End---"}) # 終了を通知
 
     
     return jsonify({"info": "Process Succeeded"}), 200
@@ -245,7 +252,7 @@ def generate_ai_response(text):
         stream = True
     )
 
-    sentens = "" # 句を構成するためのバッファ
+    sentens = "" # 句を構成するためのバッファ　
     message = "" # プロンプトに含めるためにチャンクを結合させるためのためのバッファ
     for chunk in completion:
         # きちんとしたチャンクが帰ってきているかのチェック
@@ -257,9 +264,9 @@ def generate_ai_response(text):
                 for i in range(len(content)):
                     char = content[i]
                     sentens += char
-                    if char in "。．.？?！!\n": #今見ているのが区切り文字だった場合
+                    if char in ",，、。．.？?！!\n": #今見ているのが区切り文字だった場合（読点も区切りに含める）
                         if i < len(content)-1: # i が最後の文字でないなら，次の文字をチェック
-                            if content[i+1] not in "。．.？?！!\n": #次の文字が区切り文字でないならyield
+                            if content[i+1] not in ",，、。．.？?！!\n": #次の文字が区切り文字でないならyield
                                 logging.debug(f"句: {sentens}")
                                 yield sentens
                                 sentens = ""
