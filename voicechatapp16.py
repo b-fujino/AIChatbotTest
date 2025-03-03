@@ -57,7 +57,7 @@ logging.basicConfig(
 @app.route("/")
 def index():
     logging.info("index.html を返します。")
-    return send_from_directory("static", "index15.html")
+    return send_from_directory("static", "index16.html")
 
 # VoiceVoxのSpeakerIDリストを取得するエンドポイント
 @app.route("/speaker_ids")
@@ -84,12 +84,33 @@ def get_speaker_ids():
         logging.error(f"Error: {response.status_code}")
         return jsonify([])    
 
-# VoiceVoxの音声テストを行うエンドポイント
+# 音声テストを行うエンドポイント
 @app.route("/speaker_test" , methods=["POST"])
 def speaker_test():
+    TTS = request.json["TTS"]
     speaker = request.json["speaker"]
-    text = "こんにちは．初めまして．何かお手伝いできることはありますか？"
-    mp3_data = synthesize_voice_mp3(text, speaker)
+    languageCode = request.json["languageCode"]
+    JPvoicetype = request.json["JPvoicetype"]
+    ENvoicetype = request.json["ENvoicetype"]
+    print(f"speaker_test: TTS={TTS}, speaker={speaker}, languageCode={languageCode}, JPvoicetype={JPvoicetype}, ENvoicetype={ENvoicetype}")
+
+    if TTS == "VoiceVox":
+        text = "こんにちは．初めまして．何かお手伝いできることはありますか？"
+        mp3_data = synthesize_voicevox_mp3(text, speaker)
+    elif TTS == "Google":
+        # 日本語と英語で分岐
+        if languageCode == "ja-JP":
+            text = f"こんにちは．初めまして．何かお手伝いできることはありますか？"
+            voicetype = JPvoicetype
+        elif languageCode == "en-US":
+            text = f"Hello. Nice to meet you. How can I help you?"
+            voicetype = ENvoicetype
+        else:
+            return jsonify({"error": "Failed to synthesize voice_Test. Input languageCode is irregal"}), 400
+        # Google Cloud TTS APIで音声合成
+        mp3_data = synthesize_voice_google(text,languageCode, voicetype)
+    else:
+        return jsonify({"error": "Failed to synthesize voice_Test. Input TTS is irregal"}), 400
     if mp3_data is None: return jsonify({"error": "Failed to synthesize voice"}), 400
     # mp3データをWebSocketを通じてクライアントに通知
     socketio.emit('play_audio', {'audio': mp3_data.getvalue()})
@@ -134,7 +155,7 @@ def upload_audio():
     
     # AIの応答から音声合成してmp3で返す
     speaker = request.form["speaker"]
-    mp3_data = synthesize_voice_mp3(ai_response, speaker)
+    mp3_data = synthesize_voicevox_mp3(ai_response, speaker)
     if mp3_data is None: return jsonify({"error": "Failed to synthesize voice"}), 400
 
     # mp3データをWebSocketを通じてクライアントに通知
@@ -180,7 +201,7 @@ def streaming():
         ## WebSocketを通じてクライアントに通知
         if sentence:
             #　音声合成（mp3出力）
-            #mp3_data = synthesize_voice_mp3(sentence, speaker) # VoiceVox APIを使う場合
+            #mp3_data = synthesize_voicevox_mp3(sentence, speaker) # VoiceVox APIを使う場合
             mp3_data = synthesize_voice_google(sentence) # Google Cloud TTS APIを使う場合
             if mp3_data is None: return jsonify({"error": "Failed to synthesize voice"}), 400
             ## mp3データをWebSocketを通じてクライアントに通知 ここでうまくキューに入れて連続再生させたい
@@ -276,8 +297,8 @@ def generate_ai_response(text):
 
 
 
-# VoiceVox APIで音声合成を行なう関数
-def synthesize_voice(text, speaker):
+# VoiceVox APIで音声合成を行う関数 (wav出力)
+def synthesize_voicevox(text, speaker):
     # 1. テキストから音声合成のためのクエリを作成
     query_payload = {'text': text, 'speaker': speaker}
     query_response = requests.post(f'{VOICEVOX_API_URL}/audio_query', params=query_payload)
@@ -301,22 +322,10 @@ def synthesize_voice(text, speaker):
         return None
 
 
-# voicevox apiで音声合成を行う関数（mp3出力）
-def synthesize_voice_mp3(text, speaker):
-    # 1. テキストから音声合成のためのクエリを作成
-    query_payload = {'text': text, 'speaker': speaker}
-    query_response = requests.post(f'{VOICEVOX_API_URL}/audio_query', params=query_payload)
-
-    if query_response.status_code != 200:
-        logging.error(f"Error in audio_query: {query_response.text}")
-        print(f"Error in audio_query: {query_response.text}")
-        return
-
-    query = query_response.json()
-
-    # 2. クエリを元に音声データを生成
-    synthesis_payload = {'speaker': speaker}
-    synthesis_response = requests.post(f'{VOICEVOX_API_URL}/synthesis', params=synthesis_payload, json=query)
+# voicevox で音声合成を行う関数（mp3出力）
+def synthesize_voicevox_mp3(text, speaker):
+    # voicecvox apiでwavデータを生成
+    synthesis_response = synthesize_voicevox(text, speaker)
 
     if synthesis_response.status_code == 200:
         logging.info("音声データを生成しました。")
@@ -330,7 +339,7 @@ def synthesize_voice_mp3(text, speaker):
         return None
 
 # Google Clout TTS APIで音声合成を行う関数
-def synthesize_voice_google(text):
+def synthesize_voice_google(text,langcode="ja-JP", voicetype="ja-JP-Wavenet-A"):
     # APIキーの取得
     API_KEY = os.getenv("GOOGLE_TTS_API_KEY")
 
@@ -341,9 +350,9 @@ def synthesize_voice_google(text):
     data = {
         "input": {"text": text},
         "voice": {
-            "languageCode": "ja-JP",
-            "name": "ja-JP-Wavenet-D",  # 男性の自然な声
-            "ssmlGender": "MALE"
+            "languageCode": langcode,
+            "name": voicetype,  
+#            "ssmlGender": "MALE"
         },
         "audioConfig": {
             "audioEncoding": "MP3"
