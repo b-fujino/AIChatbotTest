@@ -148,12 +148,12 @@
                         currentDiv = assistantDivs[assistantDivs.length - 1];//作ったdivを取得
                         return;
                     }
-                    else if (data.sentens.includes("---End---") ){ 
-                        // 終了時はmarkedを適用
-                        currentDiv.innerHTML= marked.parse(currentDiv.innerHTML);
-                        currentDiv = ""; //初期化
-                        return;
-                    }
+                    // else if (data.sentens.includes("---End---") ){ 
+                    //     // 終了時はmarkedを適用
+                    //     currentDiv.innerHTML= marked.parse(currentDiv.innerHTML);
+                    //     currentDiv = ""; //初期化
+                    //     return;
+                    // }
                     else{
                         // sentensをセンテンスキューに登録
                         sentensQueue.push(data.sentens);
@@ -166,12 +166,10 @@
                     const audioUrl = URL.createObjectURL(audioBlob);
                     audioQueue.push(audioUrl); // オーディオキューに登録
 
-
                     if (!isPlaying) {
                         playAudioWithSentens();
                     }
                 }
-
             });
 
             // Queueに登録された音声ファイルを再生する処理
@@ -179,6 +177,16 @@
                 // 再生する音声ファイルがなければ終了
                 if (audioQueue.length === 0) {
                     isPlaying = false;
+                    //もしセンテンスQueにデータがあれば全部吐き出す
+                    while (sentensQueue.length)  {
+                        const sentens = sentensQueue.shift();
+                        if (sentens.includes("---End---")){
+                            currentDiv.innerHTML= marked.parse(currentDiv.innerHTML);
+                            currentDiv = ""; //初期化
+                        }else{
+                            currentDiv.innerHTML += sentens;
+                        }
+                    }
                     return;
                 }
                 // 再生中フラグを立てる

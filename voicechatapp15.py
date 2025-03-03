@@ -196,6 +196,7 @@ def streaming():
             mp3_data .seek(0)
             ## mp3データをWebSocketを通じてクライアントに通知 ここでうまくキューに入れて連続再生させたい
             socketio.emit('ai_stream', {'audio': mp3_data.getvalue(), 'sentens': sentence})
+            
             # sentensの区切り文字が読点だったら，0.2秒の無音を入れる
             if sentence[-1] in ",，、":
                 silent_audio = AudioSegment.silent(duration=10)
