@@ -39,7 +39,7 @@ messages = [
 
 # 区切り文字の設定．AI出力をストリームで受け取るときに句切りをどの文字で行なうかの指定
 # この文字が来たら，その前までを一つの句として扱う
-SegmentingChars=",，、。．.？?！!\n"
+SegmentingChars=",，、。．.:;？?！!\n"
 
 #loggingの設定
 logging.basicConfig(
@@ -92,7 +92,7 @@ def speaker_test():
     languageCode = request.form["languageCode"]
     JPvoicetype = request.form["JPvoicetype"]
     ENvoicetype = request.form["ENvoicetype"]
-    print(f"speaker_test: TTS={TTS}, speaker={speaker}, languageCode={languageCode}, JPvoicetype={JPvoicetype}, ENvoicetype={ENvoicetype}")
+    logging.debug(f"speaker_test: TTS={TTS}, speaker={speaker}, languageCode={languageCode}, JPvoicetype={JPvoicetype}, ENvoicetype={ENvoicetype}")
 
     if TTS == "VoiceVox":
         text = "こんにちは．初めまして．何かお手伝いできることはありますか？"
@@ -138,7 +138,9 @@ def upload_audio():
     audio_file.save(audio_path)
 
     # 音声認識
+    start_time_sr = time.time()
     text = recognize_speech(audio_path, request.form)
+    logging.debug(f"UPLOAD: 音声認識にかかった時間: {time.time() - start_time_sr :.2f}秒")
     ## 音声認識の結果をWebSocketを通じてクライアントに通知
     if text:
         socketio.emit("SpeechRecognition",{"text": text})
@@ -146,7 +148,9 @@ def upload_audio():
         return jsonify({"error": "Failed to recognize speech"}), 400    
     
     # AIの応答を取得
+    start_time_ai = time.time()
     ai_response = get_ai_response(text)
+    logging.debug(f"UPLOAD: AIの応答にかかった時間: {time.time() - start_time_ai :.2f}秒")
     ## WebSocketを通じてクライアントに通知
     if ai_response:
         socketio.emit('ai_response', {'ai_response': ai_response}) 
@@ -154,9 +158,10 @@ def upload_audio():
         return jsonify({"error": "Failed to get AI response"}), 400
     
     # AIの応答から音声合成してmp3で返す
-    # speaker = request.form["speaker"]
-    # mp3_data = synthesize_voicevox_mp3(ai_response, speaker)
+    start_time_sv = time.time()
     mp3_data = synthesize_voice(ai_response, request.form)
+    logging.debug(f"UPLOAD: 音声合成にかかった時間: {time.time() - start_time_sv :.2f}秒")
+    logging.debug(f"UPLOAD: 合計処理時間: {time.time() - start_time_ai :.2f}秒")
     if mp3_data is None: return jsonify({"error": "Failed to synthesize voice"}), 400
 
     # mp3データをWebSocketを通じてクライアントに通知
@@ -187,7 +192,9 @@ def streaming():
     audio_file.save(audio_path)
 
     # 音声認識
+    start_time_sr = time.time()
     text = recognize_speech(audio_path, request.form)
+    logging.debug(f"STREAMING: 音声認識にかかった時間: {time.time() - start_time_sr :.2f}秒")
     ## 音声認識の結果をWebSocketを通じてクライアントに通知
     if text:
         socketio.emit("SpeechRecognition",{"text": text})
@@ -197,12 +204,11 @@ def streaming():
 
     # AIの応答を句単位でストリームするとともに．句単位で音声合成もしていく
     socketio.emit('ai_stream', {'sentens': "---Start---"}) # 開始を通知
+    start_time_stream = time.time()
     for sentence in generate_ai_response(text):
         ## WebSocketを通じてクライアントに通知
         if sentence:
             #　音声合成（mp3出力）
-            #mp3_data = synthesize_voicevox_mp3(sentence, speaker) # VoiceVox APIを使う場合
-            #mp3_data = synthesize_voice_google(sentence) # Google Cloud TTS APIを使う場合
             mp3_data = synthesize_voice(sentence, request.form)
             if mp3_data is None: return jsonify({"error": "Failed to synthesize voice"}), 400
             ## mp3データをWebSocketを通じてクライアントに通知 ここでうまくキューに入れて連続再生させたい
@@ -224,6 +230,7 @@ def streaming():
             socketio.emit('ai_stream', {'audio': mp3_data.getvalue(), 'sentens': "---silent---"})
         else:
             return jsonify({"error": "Failed to get AI response"}), 400
+    logging.debug(f"STREAMING: ストリーミング処理にかかった時間: {time.time() - start_time_stream :.2f}秒")
     socketio.emit('ai_stream', {'sentens': "---End---"}) # 終了を通知
 
     
@@ -257,6 +264,13 @@ def get_ai_response(text):
 
 # OpenAIのAPIを呼び出してAIの応答をストリームで生成する関数
 def generate_ai_response(text):
+
+    """"
+    色々なチェーン処理を書くならここに入れる．
+    Claude : https://note.com/noa813/n/n307d62b5820b
+    Gemini : https://qiita.com/RyutoYoda/items/a51830dd75a2dac96d72
+             https://ai.google.dev/api?hl=ja&lang=python
+    """
     client = OpenAI()
     messages.append({"role": "user", "content": text})
     completion = client.chat.completions.create(
@@ -280,13 +294,13 @@ def generate_ai_response(text):
                     if char in SegmentingChars: #今見ているのが区切り文字だった場合（読点も区切りに含める）
                         if i < len(content)-1: # i が最後の文字でないなら，次の文字をチェック
                             if content[i+1] not in SegmentingChars: #次の文字が区切り文字でないならyield
-                                logging.debug(f"句: {sentens}")
+                                #logging.debug(f"句: {sentens}")
                                 yield sentens
                                 sentens = ""
                             else: #もし次の文字が区切り文字なら，現時点の区切り文字はスルー
                                 continue
                         else: #iが最後の文字の場合，現時点でyield
-                            logging.debug(f"句: {sentens}")
+                            #logging.debug(f"句: {sentens}")
                             yield sentens
                             sentens = ""
     # 最後の句を返す
@@ -299,12 +313,17 @@ def generate_ai_response(text):
 
 # 各種APIを使って音声合成を行うラッパー関数
 def synthesize_voice(text, form):
+    # TTSの種類情報を取得
     TTS = form["TTS"]
     speaker = form["speakerId"]
     languageCode = form["languageCode"]
     JPvoicetype = form["JPvoicetype"]
     ENvoicetype = form["ENvoicetype"]
-    print(f"speaker_test: TTS={TTS}, speaker={speaker}, languageCode={languageCode}, JPvoicetype={JPvoicetype}, ENvoicetype={ENvoicetype}")
+    logging.debug(f"speaker_test: TTS={TTS}, speaker={speaker}, languageCode={languageCode}, JPvoicetype={JPvoicetype}, ENvoicetype={ENvoicetype}")
+
+    #Textに読み上げしない文字が含まれてる場合はその文字をTextから外す
+    text = text.replace("#", "") # 見出し文字#を削除
+    text = text.replace("**", "") # 協調表示**を削除
 
     if TTS == "VoiceVox":
         mp3_data = synthesize_voicevox_mp3(text, speaker)
